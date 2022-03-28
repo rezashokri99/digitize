@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "postcss ./src/template/tailwind.css -o ./public/build/tailwind.css --watch",
+    "prod": "cross-env NODE_ENV=production postcss ./src/css/style.css -o ./public/build/tailwind.css"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +36,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.23"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
