@@ -1,7 +1,41 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useState } from "react";
 import watchOne from "../images/Cart/1.png";
 
 const Shop = () => {
+
+    const [products, setProducts] = useState([
+        {id: 0, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Zero" ,colors: ["indigo", "yellow", 'white']},
+        {id: 1, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"One" ,colors: ["indigo", "orange", "yellow", 'white']},
+        {id: 2, title: "ساعت اپل سری 7", price: "4,250,200 تومان",image: watchOne, colorType:"Two" ,colors: ["indigo", "orange"]},
+        {id: 3, title: "ساعت اپل سری 5", price: "4,250,200 تومان",image: watchOne, colorType:"There" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 4, title: "ساعت اپل سری 7", price: "4,250,200 تومان",image: watchOne, colorType:"Four" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 5, title: "ساعت اپل سری 4", price: "4,250,200 تومان",image: watchOne, colorType:"Five" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 6, title: "ساعت اپل سری 5", price: "4,250,200 تومان",image: watchOne, colorType:"Six" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 7, title: "ساعت اپل سری 7", price: "4,250,200 تومان",image: watchOne, colorType:"Eight" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 8, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Nine" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 9, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]}
+    ])
+
+    const [colorSelectedAll, setColorSelectedAll] = useState(
+        products.map((prodcut) => {
+            return {[prodcut.colorType]: prodcut.colors[0]}
+        })
+    )
+    
+    
+    const changeColorHandler = (e, id) => {
+        let NO = (e.target.id).split(" ")[0];
+        let newColor = (e.target.id).split(" ")[1];
+        if (NO) {
+            console.log(colorSelectedAll[id]);
+            let colorSelectedAllCopyied = [...colorSelectedAll];
+            colorSelectedAllCopyied[id] = {[NO]: newColor}
+            setColorSelectedAll(colorSelectedAllCopyied);
+        }
+    }
+
+
     return (
         <div className="px-4">
             {/* header */}
@@ -42,310 +76,49 @@ const Shop = () => {
                 </div>
 
                 {/* main */}
-                <div className="grid grid-cols-2 gap-x-2 gap-y-8 md:grid-cols-3 lg:grid-cols-4">
+                <div className="grid grid-cols-2 gap-x-2 gap-y-8 md:gap-x-6 md:gap-y-12 md:grid-cols-3 lg:grid-cols-4">
+                    {
+                        products.map((product) => (
+                            <div className="bg-white rounded-lg shadow-md" key={product.id}>     
+                                {/* product image */}
+                                <div className="bg-gray-200 rounded-xl p-2 shadow-md mb-5 m-[6px]">
+                                    <img className="h-full" src={product.image} alt="watch" />    
+                                </div>
+                                {/* product colors */}
+                                <div className="flex items-center justify-between mx-[10px] mb-3">
+                                    <p className="text-gray-300 text-xs md:text-base">اپل</p>
+                                    <div className="flex">
+                                        {
+                                            product.colors.map((color) => (
+                                                <div key={color} onClick={(e) => changeColorHandler(e, product.id)} id={`${product.colorType} ${color}`} className={`${colorSelectedAll[product.id][product.colorType] === color && `${color === "white" ? `z-10 ring-2 ring-white` : color === "indigo" ? ` z-10 ring-2 ring-indigo-600` : color === "yellow" ? ` z-10 ring-2 ring-yellow-400` : color === "orange" ? ` z-10 ring-2 ring-orange-500` : ""}` } flex justify-center items-center w-4 h-4 sm:w-5 sm:h-5 rounded-full ${color === "white" ? "bg-gray-50" : color === "indigo" ? `bg-indigo-600` : color === "yellow" ? ` bg-yellow-400` : color === "orange" ? ` bg-orange-500` : ""}  border ${color === "white" ? "border-gray-300" : `border-white`} cursor-pointer -ml-1`}>
+                                                    {console.log(colorSelectedAll[product.id][product.colorType] === color)}
+                                                    <svg  xmlns="http://www.w3.org/2000/svg" className={`${colorSelectedAll[product.id][product.colorType] === color ? "z-20" : "hidden z-10"} h-3 w-3 sm:h-4 sm:w-4 ${color === "white" ? `text-gray-800` : `text-white`}`} viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                            ))
+                                        }
+                                        
+                                    </div>
+                                </div>
+                                {/* product name and price */}
+                                <div className="mx-[10px] mb-3">
+                                    <p className="text-sm text-slate-900 font-medium mb-2 md:text-base">{product.title}</p>
+                                    <p className="text-sm text-orange-600 font-medium text-left md:text-base">{product.price}</p>
+                                </div>
+                                {/* prodcut buy btn */}
+                                <div className="flex items-center justify-center mx-[10px] py-2 border-t sm:py-4 lg:py-3">
+                                    <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
+                                </div>
+
+                            </div>
+                        ))
+                    }
+
+
+
+
                     
-                    {/* product one */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-
-                    {/* product two */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-
-                    {/* product there */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-                    {/* product four */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-                    {/* product five */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-                    {/* product six */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-                    {/* product seven */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-                    {/* product eight */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
-                    {/* product nine */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-                    
-                    {/* product ten */}
-                    <div className="bg-white rounded-lg shadow-md">
-                        
-                        {/* product image */}
-                        <div className="bg-gray-200 h-[144px] flex items-center justify-center rounded-lg mb-5 m-[6px]">
-                            <img className="h-28 w-16" src={watchOne} alt="watch" />    
-                        </div>
-                        {/* product colors */}
-                        <div className="flex items-center justify-between mx-[10px] mb-3">
-                            <p className="text-gray-300 text-xs">اپل</p>
-                            <div className="flex">
-                                <div className="w-3 h-3 rounded-full bg-orange-300 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-indigo-600 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-orange-400 border border-white"></div>
-                                <div className="w-3 h-3 rounded-full bg-gray-50 border border-gray-300"></div>
-                            </div>
-                        </div>
-                        {/* product name and price */}
-                        <div className="mx-[10px] mb-3">
-                            <p className="text-sm text-slate-900 font-medium mb-2">ساعت اپل سری 6</p>
-                            <p className="text-sm text-orange-600 font-medium text-left">4,250,200 تومان</p>
-                        </div>
-                        {/* prodcut buy btn */}
-                        <div className="flex items-center justify-center mx-[10px] py-2 border-t">
-                            <a href="#" className="font-bold text-base text-orange-500">مشاهده و سفارش</a>
-                        </div>
-
-                    </div>
-
                 </div>
 
             </div>
