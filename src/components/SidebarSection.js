@@ -58,7 +58,7 @@ const SidebarSection = () => {
 
             <div>
                 <p className="text-xl font-bold text-orange-500 mb-5">فیلتر</p>
-
+                {/* acc 1 */}
                 <div className="mb-6 text-slate-800">
                     {/* header */}
                     <div onClick={() => setIsOpenBrand((prevOpenBrand) => !prevOpenBrand)} className="cursor-pointer text-slate-800 flex items-center justify-between px-1.5 mb-4">
@@ -103,7 +103,7 @@ const SidebarSection = () => {
                         </div>
                     }
                 </div>
-                
+                {/* acc 2 */}
                 <div className="mb-6 text-slate-800">
                     {/* header */}
                     <div onClick={() => setIsOpenColor((prevOpenBrand) => !prevOpenBrand)} className="cursor-pointer text-slate-800 flex items-center justify-between px-1.5 mb-4">
@@ -149,7 +149,7 @@ const SidebarSection = () => {
                         </div>
                     }
                 </div>
-
+                {/* acc 3 */}
                 <div className="mb-6 text-slate-800 ">
                     {/* header */}
                     <div onClick={() => setIsOpenPriceRange((prevOpenBrand) => !prevOpenBrand)} className="cursor-pointer text-slate-800 flex items-center justify-between px-1.5 mb-6">

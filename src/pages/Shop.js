@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Card from "../components/Card";
 import watchOne from "../images/Cart/1.png";
+import logo from "../images/logo.svg";
 
 const Shop = () => {
 
@@ -43,7 +44,9 @@ const Shop = () => {
                 
                 {/* bar */}
                 <div className="flex items-center justify-between pt-11 mb-6 px-6px md:hidden">
-                    <div>logo</div>
+                    <div>
+                        <img src={logo} alt="logo" />
+                    </div>
                     <div className="text-slate-800 font-bold text-2xl">ساعت هوشمند</div>
                     <div className="w-7 h-7 bg-white rounded-md flex items-center justify-center shadow">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
