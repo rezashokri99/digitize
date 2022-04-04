@@ -16,7 +16,13 @@ const Shop = () => {
         {id: 6, title: "ساعت اپل سری 5", price: "4,250,200 تومان",image: watchOne, colorType:"Six" ,colors: ["indigo", "orange", "yellow"]},
         {id: 7, title: "ساعت اپل سری 7", price: "4,250,200 تومان",image: watchOne, colorType:"Eight" ,colors: ["indigo", "orange", "yellow"]},
         {id: 8, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Nine" ,colors: ["indigo", "orange", "yellow"]},
-        {id: 9, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]}
+        {id: 9, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 10, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 11, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 12, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 13, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 14, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
+        {id: 15, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
     ])
 
     const [colorSelectedAll, setColorSelectedAll] = useState(
