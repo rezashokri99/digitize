@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useNavigate } from "react-router-dom";
 import Colors from "./Colors";
 
 const Card = ({product, colorSelectedAll ,changeColorHandler}) => {
     
+    const navigate = useNavigate()
+    const goToSingleProduct = (id) => {
+        navigate(`/singleProduct/${id}`)
+    }
+
 
     return (
-        <div className="bg-white rounded-lg shadow-md">     
+        <div onClick={() => goToSingleProduct(product.id)} className="bg-white rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:-translate-y-2">     
             {/* product image */}
             <div className="bg-gray-200 max-h-36 xs:max-h-44 xs:h-44 flex justify-center items-center rounded-xl p-2 shadow-md mb-5 m-[6px]">
                 <img className="max-w-[90px] h-32 xs:h-36 xs:w-full" src={product.images[1]} alt="watch" />    

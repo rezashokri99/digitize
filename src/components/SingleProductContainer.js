@@ -7,26 +7,25 @@ import middle from "../images/Single Product/mobile/Middle.png";
 import watchOne from "../images/Cart/1.png";
 import Colors from "./Colors";
 import { productsProvider } from "../contexts/ProductsContext";
+import { useParams } from "react-router-dom";
 
 const ShopContainer = () => {
   
-  // ///////////////////////////////////////
+  // context
   const products = useContext(productsProvider);
-  console.log(products);
+  
+  // params id of url
+  const paramsId = useParams().id;
+  
+  const product = products.find((p) => p.id === (+paramsId));
+  console.log(product);
 
 
-  const [imageSelected, setImageSelected] = useState(iphone13_128_2);
+  const [imageSelected, setImageSelected] = useState(product.images[1]);
   const [openReviewSection, setOpenReviewSection] = useState(false);
   const [openTabAttributes, setOpenTabAttributes] = useState("طراحی");
 
-  const [product, setProducts] = useState({
-    id: 0,
-    title: "ساعت اپل سری 6",
-    price: "4,250,200 تومان",
-    image: watchOne,
-    colorType: "One",
-    colors: ["indigo", "orange", "yellow", "white"],
-  });
+  
 
   const [colorSelectedAll, setColorSelectedAll] = useState([
     { [product.colorType]: product.colors[0] },
@@ -117,10 +116,12 @@ const ShopContainer = () => {
               {/* product image */}
             <div className="lg:w-1/3 mb-8 md:pt-5 lg:max-w-[300px]">
               <img className="lg:w-[350px] mx-auto" src={imageSelected} alt="iphone13" />
-              <div className="w-56 flex mx-auto gap-x-2">
-                <div onClick={() => setImageSelected(iphone13_128_2)} className="w-1/3 cursor-pointer border border-gray-400 p-1.5 rounded-lg"><img src={iphone13_128_2} alt="iphone13" /></div>
-                <div onClick={() => setImageSelected(iphone13_128)} className="w-1/3 cursor-pointer border border-gray-400 p-1.5 rounded-lg"><img src={iphone13_128} alt="iphone13" /></div>
-                <div onClick={() => setImageSelected(iphone13_128_3)} className="w-1/3 cursor-pointer border border-gray-400 p-1.5 rounded-lg"><img src={iphone13_128_3} alt="iphone13" /></div>
+              <div className="w-56 flex justify-center mx-auto gap-x-2">
+                {
+                  product.images.map((image) => (
+                    <div onClick={() => setImageSelected(image)} className="w-1/3 mt-2 cursor-pointer border border-gray-400 p-1.5 rounded-lg"><img src={image} alt="iphone13" /></div>
+                  ))
+                }
               </div>
             </div>
 
@@ -128,15 +129,15 @@ const ShopContainer = () => {
               {/* product title */}
                 <div className="w-full lg:text-right text-center mb-11">
                   <h2 className="text-slate-800 text-xl font-medium mb-1">
-                    گوشی آیفون 13 128 گیگابایت
+                    {product.persianName}
                   </h2>
-                  <h3 className="text-gray-500">Apple Iphone 13 128 GB</h3>
+                  <h3 className="text-gray-500">{product.englishName}</h3>
                 </div>
 
                 {/* product colors */}
                 <div className="flex items-center lg:justify-start justify-center mx-auto mb-7">
                   <p className="font-medium text-lg text-slate-800">انتخاب رنگ:</p>
-                  <div className="flex mr-28 md:mr-48 lg:mr-14">
+                  <div className="flex mr-28 md:mr-48 lg:mr-20 xl:mr-28">
                     {product.colors.map((color) => (
                       <Colors
                         place="singleProduct"
@@ -289,7 +290,7 @@ const ShopContainer = () => {
                   </div>
                   <div className="w-full flex flex-col items-end gap-y-3">
                     <div className="text-orange-500 font-medium ml-1">
-                      <span>28,540,000</span>
+                      <span>{product.price}</span>
                       <span className="mr-1">تومان</span>
                     </div>
                     <div className="">
@@ -596,7 +597,7 @@ const ShopContainer = () => {
             </button>
           </div>
           <div className="flex-1 flex flex-col">
-            <span>28,540,000</span>
+            <span>{product.price}</span>
             <span>تومان</span>
           </div>
         </div>

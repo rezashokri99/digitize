@@ -6,15 +6,14 @@ import Card from "../components/Card";
 import { productsProvider } from "../contexts/ProductsContext";
 import watchOne from "../images/Cart/1.png";
 
-const Shop = () => {
+const Shop = ({brandsListHandler, productsForRender, activeSortBtn, setActiveSortBtn}) => {
 
-    // products context
-    const products = useContext(productsProvider);
+    
 
     const [openFilterMobile, setOpenFilterMobile] = useState(false);
     const [openSortMobile, setOpenSortMobile] = useState(false);
 
-    const [activeBtn, setActiveBtn] = useState(1);
+    // const [activeSortBtn, setActiveSortBtn] = useState(1);
     const [isOpenBrand, setIsOpenBrand] = useState(false);
     const [isOpenColor, setIsOpenColor] = useState(false);
     const [priceRanges, setPriceRanges] = useState({min: 0, max: 33000000})
@@ -41,7 +40,7 @@ const Shop = () => {
     // ])
 
     const [colorSelectedAll, setColorSelectedAll] = useState(
-        products.map((prodcut) => {
+        productsForRender.map((prodcut) => {
             return {[prodcut.id]: prodcut.colors[0]}
         })
     )
@@ -61,6 +60,8 @@ const Shop = () => {
         setOpenSortMobile(false);
         setOpenFilterMobile(false);
     }
+
+    
 
 
     return (
@@ -97,7 +98,7 @@ const Shop = () => {
                 {/* main */}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-8 md:gap-x-6 md:gap-y-12 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {
-                        products.map((product) => (
+                        productsForRender.map((product) => (
                             <Card key={product.id} product={product} colorSelectedAll={colorSelectedAll} changeColorHandler={changeColorHandler} />
                         ))
                     }
@@ -133,23 +134,35 @@ const Shop = () => {
 
                         {/* content */}
                         {
-                            isOpenBrand && <div className="px-3">
+                            isOpenBrand && <div onClick={() => setOpenFilterMobile(false)} className="px-3">
                             
-                                <label id="apple" className="flex items-center cursor-pointer mb-2">
+                            <label onClick={brandsListHandler} id="apple" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="apple" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">اپل</span>
                                 </label>
-                                <label id="samsung" className="flex items-center cursor-pointer mb-2">
+                                <label onClick={brandsListHandler} id="samsung" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="samsung" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">سامسونگ</span>
                                 </label>
-                                <label id="xiaomi" className="flex items-center cursor-pointer mb-2">
+                                <label onClick={brandsListHandler} id="xiaomi" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="xiaomi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">شیائومی</span>
                                 </label>
-                                <label id="huawei" className="flex items-center cursor-pointer">
+                                <label onClick={brandsListHandler} id="huawei" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="huawei" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">هواوی</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="asus" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="asus" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">ایسوس</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="lenovo" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="lenovo" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">لنوو</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="msi" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="msi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">ام اس آی</span>
                                 </label>
 
                             </div>
@@ -179,7 +192,7 @@ const Shop = () => {
 
                         {/* content */}
                         {
-                            isOpenColor && <div className="px-3">
+                            isOpenColor && <div onClick={() => setOpenFilterMobile(false)} className="px-3">
                             
                                 <label id="black" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="black" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
@@ -225,7 +238,7 @@ const Shop = () => {
 
                         {/* content */}
                         {
-                            isOpenPriceRange && <div dir="ltr" className="w-full px-4">
+                            isOpenPriceRange && <div onClick={() => setOpenFilterMobile(false)} dir="ltr" className="w-full px-4">
                                 <InputRange maxValue={33000000} minValue={0} step={1000000} value={priceRanges} onChange={value => setPriceRanges(value)} />
                             </div>
                         }
@@ -241,22 +254,22 @@ const Shop = () => {
                         </svg>
                     </div>
 
-                    <div className="flex flex-col">
-                        <button onClick={() => setActiveBtn(1)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeBtn === 1 && "text-slate-800 font-bold bg-gray-100"}`}>
+                    <div onClick={() => setOpenSortMobile(false)} className="flex flex-col">
+                        <button onClick={() => setActiveSortBtn(1)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 1 && "text-slate-800 font-bold bg-gray-100"}`}>
                         <span>محبوب ترین</span>
-                        {activeBtn === 1 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
+                        {activeSortBtn === 1 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
                         </button>
-                        <button onClick={() => setActiveBtn(2)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeBtn === 2 && "text-slate-800 font-bold bg-gray-100"}`}>
-                            <span>پرفروش ترین</span>
-                            {activeBtn === 2 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
-                        </button>
-                        <button onClick={() => setActiveBtn(3)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeBtn === 3 && "text-slate-800 font-bold bg-gray-100"}`}>
-                            <span>گران ترین</span>
-                            {activeBtn === 3 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
-                        </button>
-                        <button onClick={() => setActiveBtn(4)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeBtn === 4 && "text-slate-800 font-bold bg-gray-100"}`}>
+                        <button onClick={() => setActiveSortBtn(2)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 2 && "text-slate-800 font-bold bg-gray-100"}`}>
                             <span>ارزان ترین</span>
-                            {activeBtn === 4 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
+                            {activeSortBtn === 2 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
+                        </button>
+                        <button onClick={() => setActiveSortBtn(3)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 3 && "text-slate-800 font-bold bg-gray-100"}`}>
+                            <span>گران ترین</span>
+                            {activeSortBtn === 3 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
+                        </button>
+                        <button onClick={() => setActiveSortBtn(4)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 4 && "text-slate-800 font-bold bg-gray-100"}`}>
+                            <span>پرفروش ترین</span>
+                            {activeSortBtn === 4 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
                         </button>
                     </div>
                 </div>

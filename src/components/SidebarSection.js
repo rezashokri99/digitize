@@ -3,13 +3,14 @@ import { useState } from "react";
 import InputRange from "react-input-range";
 import "../../node_modules/react-input-range/lib/css/index.css";
 
-const SidebarSection = () => {
+const SidebarSection = ({brandsListHandler, activeTypeBtn, setActiveTypeBtn}) => {
 
-    const [activeBtn, setActiveBtn] = useState(1);
     const [isOpenBrand, setIsOpenBrand] = useState(false);
     const [isOpenColor, setIsOpenColor] = useState(false);
-    const [priceRanges, setPriceRanges] = useState({min: 0, max: 33000000})
-    const [isOpenPriceRange, setIsOpenPriceRange] = useState(false)
+    const [priceRanges, setPriceRanges] = useState({min: 0, max: 33000000});
+    const [isOpenPriceRange, setIsOpenPriceRange] = useState(false);
+
+    
 
     return (
         <div className="hidden md:block md:col-span-3 lg:col-span-2 row-span-2 rounded-md max-h-[calc(100vh_-_140px)] overflow-auto sticky top-28 scrollbar scrollbar-thumb-red-300 scrollbar-track-gray-200">
@@ -19,7 +20,19 @@ const SidebarSection = () => {
                     <p className="text-xl font-bold text-orange-500 mb-5">دسته بندی</p>
                     <ul>
                         <li>
-                            <a href="#" onClick={() => setActiveBtn(1)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeBtn === 1 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => setActiveTypeBtn(1)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 1 ? "text-slate-800" : "text-gray-400"}`}>
+                                <div>
+                                    <svg className="w-6 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="10.5" cy="9.5" r="9.5" fill="#AFAFAF" fill-opacity=".29"/>
+                                        <path d="M12.438 13v8c0 1.603-.218 2.378-.645 2.8-.43.423-1.225.637-2.855.637H4.061c-1.63 0-2.424-.214-2.855-.638C.78 23.38.562 22.603.562 21v-8c0-1.603.218-2.378.645-2.8.43-.423 1.225-.637 2.856-.637h4.875c1.63 0 2.424.214 2.855.638.427.42.645 1.196.645 2.799ZM8.125 11.8h-3.25" stroke="currentColor" stroke-width="1.125" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M6.5 22.68a1.25 1.25 0 0 0 1.26-1.24A1.25 1.25 0 0 0 6.5 20.2a1.25 1.25 0 0 0-1.26 1.24c0 .685.564 1.24 1.26 1.24Z" stroke="currentColor" stroke-width="1.125" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </div>
+                            <span>همه</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onClick={() => setActiveTypeBtn(2)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 2 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="10.5" cy="9.5" r="9.5" fill="#AFAFAF" fill-opacity=".29"/>
@@ -31,7 +44,7 @@ const SidebarSection = () => {
                             </a>
                         </li>
                         <li >
-                            <a href="#" onClick={() => setActiveBtn(2)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 my-1 ${activeBtn === 2 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => setActiveTypeBtn(3)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 my-1 ${activeTypeBtn === 3 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="11.5" cy="9.5" r="9.5" fill="#AFAFAF" fillOpacity=".29"/>
@@ -42,7 +55,7 @@ const SidebarSection = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="#" onClick={() => setActiveBtn(3)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeBtn === 3 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => setActiveTypeBtn(4)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 4 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="11.5" cy="9.5" r="9.5" fill="#AFAFAF" fill-opacity=".29"/>
@@ -83,25 +96,83 @@ const SidebarSection = () => {
 
                         {/* content */}
                         {
-                            isOpenBrand && <div className="px-3">
+                            isOpenBrand && (activeTypeBtn === 1) ? <div className="px-3">
                             
-                                <label id="apple" className="flex items-center cursor-pointer mb-2">
+                                <label onClick={brandsListHandler} id="apple" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="apple" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">اپل</span>
                                 </label>
-                                <label id="samsung" className="flex items-center cursor-pointer mb-2">
+                                <label onClick={brandsListHandler} id="samsung" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="samsung" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">سامسونگ</span>
                                 </label>
-                                <label id="xiaomi" className="flex items-center cursor-pointer mb-2">
+                                <label onClick={brandsListHandler} id="xiaomi" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="xiaomi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">شیائومی</span>
                                 </label>
-                                <label id="huawei" className="flex items-center cursor-pointer">
+                                <label onClick={brandsListHandler} id="huawei" className="flex items-center cursor-pointer mb-2">
                                     <input type="checkbox" id="huawei" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                                     <span className="mr-1.5">هواوی</span>
                                 </label>
+                                <label onClick={brandsListHandler} id="asus" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="asus" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">ایسوس</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="lenovo" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="lenovo" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">لنوو</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="msi" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="msi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">ام اس آی</span>
+                                </label>
 
+                            </div> :
+                            activeTypeBtn === 2 ? <div  className="px-3">
+                                <label onClick={brandsListHandler} id="apple" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="apple" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">اپل</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="samsung" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="samsung" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">سامسونگ</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="xiaomi" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="xiaomi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">شیائومی</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="huawei" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="huawei" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">هواوی</span>
+                                </label>
+                            </div> :
+                            activeTypeBtn === 3 ? <div className="px-3">
+                                <label onClick={brandsListHandler} id="asus" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="asus" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">ایسوس</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="lenovo" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="lenovo" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">لنوو</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="apple" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="apple" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">اپل</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="msi" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="msi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">ام اس آی</span>
+                                </label>
+                            </div> : 
+                            activeTypeBtn === 4 && <div className="px-3">
+                                <label onClick={brandsListHandler} id="apple" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="apple" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">اپل</span>
+                                </label>
+                                <label onClick={brandsListHandler} id="samsung" className="flex items-center cursor-pointer mb-2">
+                                    <input type="checkbox" id="samsung" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                                    <span className="mr-1.5">سامسونگ</span>
+                                </label>
                             </div>
                         }
                     </div>

@@ -3,10 +3,10 @@ import NavbarSection from "../components/NavbarSection";
 import SidebarSection from "../components/SidebarSection";
 import { useContext } from "react";
 import { productsProvider } from "../contexts/ProductsContext";
+import { useParams } from "react-router-dom";
 
-const ShopSection = () => {
-    const products = useContext(productsProvider);
-    console.log(products);
+const SingleProductPage = () => {
+    
     
     return (
         <>
@@ -19,4 +19,4 @@ const ShopSection = () => {
     );
 }
  
-export default ShopSection;
+export default SingleProductPage;
