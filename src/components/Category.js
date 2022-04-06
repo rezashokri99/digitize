@@ -9,33 +9,24 @@ import asusLogo from "../images/Category/asus.png";
 import lenovoLogo from "../images/Category/lenovo.png";
 import msiLogo from "../images/Category/msi.png";
 import smartWatchLogo from "../images/Category/smartwatch.svg";
+import BarLogo from "./BarLogo";
 
 
 
 
 const Category = () => {
     return (
-        <div className="col-span-12">
+        <div className="col-span-12 md:hidden">
             
             {/* bar */}
-            <div className="flex  items-center justify-between pt-11 mb-6 px-6px md:hidden">
-                    <div>
-                        <img src={logo} alt="logo" />
-                    </div>
-                    <div className="text-slate-800 font-bold text-2xl">ساعت هوشمند</div>
-                    <div className="w-7 h-7 bg-white rounded-md flex items-center justify-center shadow">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                        </svg>
-                    </div>
-            </div>
+            <BarLogo />
 
-            <div className="pb-28">
+            <div className="pb-28 mr-2">
                 <div className="relative">
                     <div className="overflow-x-auto pb-3">
                         <div className="w-fit">
 
-                            <p className="text-orange-500 absolute left-0 text-sm">مشاهده همه</p>
+                            <p className="text-orange-500 absolute left-3 text-sm">مشاهده همه</p>
                             <div className="flex gap-x-2 overflow-x-scroll items-end justify-between">
                                 
                                 <div className="relative w-36 h-48 bg-gray-200 pt-4 rounded-lg overflow-hidden">
@@ -80,7 +71,7 @@ const Category = () => {
                 <div className="relative">
                     <div className="overflow-x-auto pb-3">
                         <div className="w-fit">
-                            <p className="text-orange-500 absolute left-0 text-sm">مشاهده همه</p>
+                            <p className="text-orange-500 absolute left-3 text-sm">مشاهده همه</p>
                             <div className="flex gap-x-2 overflow-x-scroll items-end justify-between">
                                 
                                 <div className="relative w-36 h-48 bg-gray-200 pt-4 rounded-lg overflow-hidden">
@@ -125,7 +116,7 @@ const Category = () => {
                 <div className="relative">
                     <div className="overflow-x-auto pb-3">
                         <div className="w-fit">
-                            <p className="text-orange-500 absolute left-0 text-sm">مشاهده همه</p>
+                            <p className="text-orange-500 absolute left-3 text-sm">مشاهده همه</p>
                             <div className="flex gap-x-2 overflow-x-scroll items-end justify-between">
                                 
                                 <div className="relative w-36 h-48 bg-gray-200 pt-4 rounded-lg overflow-hidden">
@@ -158,14 +149,8 @@ const Category = () => {
                         </div>
                     </div>
                 </div>
-                
-                
-
-                
-
-            </div>
-
-            
+ 
+            </div>           
 
         </div>
     );

@@ -4,6 +4,7 @@ import logo from "../images/logo_two.svg";
 
 const NavbarSection = () => {
     return (
+      <div className="hidden md:block w-full bg-white shadow-md sticky top-0 z-20">
         <div className="container max-w-screen-2xl mx-auto md:px-3 md:py-4 lg:py-5 flex justify-between items-center">
           <ul className="flex items-center md:gap-x-0 lg:gap-x-2">
             <li className="md:ml-2 lg:ml-5">
@@ -23,6 +24,7 @@ const NavbarSection = () => {
             <input className="w-full border-none focus:outline-none focus:ring-0 bg-transparent block py-3 text-slate-800" type="text" placeholder="جستجوی نام محصول,نام برند,نام مدل و..." />
           </div>
         </div>
+      </div>
     );
 }
  

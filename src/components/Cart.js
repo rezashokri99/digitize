@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
 import image from "../images/Cart/2.png";
+import BarBackBtn from "./BarBackBtn";
+
 
 
 const Cart = () => {
@@ -11,42 +13,9 @@ const Cart = () => {
     <div className="mx-auto col-span-12 w-full xs:w-[450px] sm:w-[570px] md:w-full ">
         <div className={`${openDiscount ? "pb-60" : "pb-52"} grid gap-y-9 grid-cols-12 md:gap-x-2`}>
             <div className="col-span-12 md:col-span-7 lg:col-span-8">
+                
                 {/* bar */}
-                <div className="flex items-center justify-between pt-11 mb-7 md:hidden">
-                    <div className="w-7 h-7 xs:w-9 xs:h-9 bg-white rounded-md flex items-center justify-center shadow">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                    >
-                        <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
-                        />
-                    </svg>
-                    </div>
-                    <div className="text-slate-800 font-bold text-xl">
-                        سبد خرید
-                    </div>
-                    <div className="w-7 h-7 xs:w-9 xs:h-9 bg-white rounded-md flex items-center justify-center shadow">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                    >
-                        <path
-                        fillRule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clipRule="evenodd"
-                        />
-                    </svg>
-                    </div>
-                </div>
+                <BarBackBtn />
 
                 {/* items container */}
                 <div className="flex flex-col gap-y-2">
@@ -304,9 +273,9 @@ const Cart = () => {
                                 <span className="text-slate-800 text-sm font-medium">
                                     کد تخفیف:                                   
                                 </span>
-                                <div className="flex items-center w-36 h-9 rounded-md overflow-hidden border border-gray-600">
+                                <div className="flex items-center w-36 h-9 rounded-md overflow-hidden border border-gray-400">
                                     <input dir="ltr" className="block w-full h-full p-1 text-center focus:outline-hidden border-none" type="text" placeholder="123ABC" />
-                                    <a className="bg-orange-400 p-2.5 flex items-center justify-center h-full" href="#">
+                                    <a className="bg-orange-400 p-2.5 flex items-center justify-center h-full text-stone-100" href="#">
                                         تایید                                       
                                     </a>
                                 </div>

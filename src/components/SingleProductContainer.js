@@ -1,18 +1,25 @@
-import { useState } from "react";
-import iphone13_128 from "../images/Single Product/iphone-13-128.png";
-import iphone13_128_2 from "../images/Single Product/Apple-iPhone-13-2.png";
-import iphone13_128_3 from "../images/Single Product/Apple-iPhone-13-3.png";
-import middle from "../images/Single Product/Middle.png";
+import { useContext, useState } from "react";
+import BarBackBtn from "./BarBackBtn";
+import iphone13_128 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-1.png";
+import iphone13_128_2 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-2.png";
+import iphone13_128_3 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-3.png";
+import middle from "../images/Single Product/mobile/Middle.png";
 import watchOne from "../images/Cart/1.png";
 import Colors from "./Colors";
+import { productsProvider } from "../contexts/ProductsContext";
 
-const SingleProduct = () => {
+const ShopContainer = () => {
   
-    const [imageSelected, setImageSelected] = useState(iphone13_128_2);
-    const [openReviewSection, setOpenReviewSection] = useState(false);
-    const [openTabAttributes, setOpenTabAttributes] = useState("طراحی");
+  // ///////////////////////////////////////
+  const products = useContext(productsProvider);
+  console.log(products);
 
-    const [product, setProducts] = useState({
+
+  const [imageSelected, setImageSelected] = useState(iphone13_128_2);
+  const [openReviewSection, setOpenReviewSection] = useState(false);
+  const [openTabAttributes, setOpenTabAttributes] = useState("طراحی");
+
+  const [product, setProducts] = useState({
     id: 0,
     title: "ساعت اپل سری 6",
     price: "4,250,200 تومان",
@@ -70,42 +77,9 @@ const SingleProduct = () => {
 
       {/* product container */}
       <div className="md:bg-white col-span-12 md:col-span-9 lg:col-span-10">
+        
         {/* bar */}
-        <div className="flex items-center justify-between pt-11 mb-7 md:hidden">
-          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center shadow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
-          <div className="text-slate-800 font-medium text-2xl">
-            گوشی آیفون 13{" "}
-          </div>
-          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center shadow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
+        <BarBackBtn />
 
         {/* breadcrumb mobile */}
         <div className="flex md:hidden items-end gap-x-1.5 text-xs mb-10 pr-6px">
@@ -631,4 +605,4 @@ const SingleProduct = () => {
   );
 };
 
-export default SingleProduct;
+export default ShopContainer;

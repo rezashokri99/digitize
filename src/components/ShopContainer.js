@@ -1,7 +1,7 @@
 import Shop from "../pages/Shop";
 import SortSection from "./SortSection";
 
-const Main = () => {
+const ShopContainer = () => {
     return (
         <>
             {/* sort section */}
@@ -13,4 +13,4 @@ const Main = () => {
     );
 }
  
-export default Main;
+export default ShopContainer;
