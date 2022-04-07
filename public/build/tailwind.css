@@ -921,6 +921,9 @@ select{
   -webkit-user-select: none;
           user-select: none;
 }
+.resize{
+  resize: both;
+}
 .list-inside{
   list-style-position: inside;
 }
@@ -1627,6 +1630,12 @@ select{
   }
   .md\:w-56{
     width: 14rem;
+  }
+  .md\:w-1\/5{
+    width: 20%;
+  }
+  .md\:w-2\/6{
+    width: 33.333333%;
   }
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));

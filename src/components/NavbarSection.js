@@ -39,7 +39,7 @@ const NavbarSection = () => {
             <li><a onClick={() => activeTypeBtnHandler(4)} className={`${activeTypeBtn ? "font-extrabold": "font-medium"}hover:bg-gray-50 md:text-base lg:text-xl text-slate-800 py-4 md:px-1.5 lg:px-2`} href="#">ساعت هوشمند</a></li>
             <li><a onClick={() => navigate("/cart")} className={`hover:bg-gray-50 md:text-base lg:text-xl text-slate-800 py-4 md:px-1.5 lg:px-2`} href="#">سبد خرید</a></li>
           </ul>
-          <div className="flex items-center bg-gray-100 md:w-2/5 lg:w-2/6 max-w-xxl rounded overflow-hidden">
+          <div className="flex items-center bg-gray-100 md:w-2/6 lg:w-2/6 max-w-xxl rounded overflow-hidden">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-slate-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

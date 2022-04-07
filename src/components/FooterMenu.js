@@ -30,7 +30,7 @@ const FooterMenu = () => {
 
     useLayoutEffect(() => {
       if (location.pathname === "/shop") {
-        setIsOpenTab(1) ;
+        setIsOpenTab(2) ;
       }
       if (location.pathname === "/category") {
         setIsOpenTab(2);

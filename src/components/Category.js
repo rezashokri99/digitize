@@ -13,6 +13,7 @@ import BarLogo from "./BarLogo";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeBrandsAction, changeTypeAction, selectBrandsAction, selectTypeAction } from "../redux/products/productsAction";
+import useWindowDimensions from "./useWindowDimensions";
 
 
 
@@ -48,6 +49,15 @@ const Category = () => {
         dispatch(changeBrandsAction(e.target.id));
         dispatch(selectBrandsAction(e.target.id));
     }
+
+
+
+  const { height, width } = useWindowDimensions();
+    if (width >= 767) {
+        navigate("/")
+    }
+
+
 
 
     return (
