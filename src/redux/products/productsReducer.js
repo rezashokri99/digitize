@@ -1,58 +1,118 @@
-import iphone13_1 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-1.png";
-import iphone13_2 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-2.png";
-import iphone13_3 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-3.png";
-import iphone13_pro_1 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-1.png";
-import iphone13_pro_2 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-2.png";
-import iphone13_pro_3 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-3.png";
-import iphone13_pro_max_1 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-max-1.png";
-import iphone13_pro_max_2 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-max-2.png";
-import xiaomi_mi11_1 from "../images/Single Product/mobile/xiaomi/xiaomi-mi11-1.png";
-import xiaomi_mi11_2 from "../images/Single Product/mobile/xiaomi/xiaomi-mi11-2.png";
-import xiaomi_mi11_3 from "../images/Single Product/mobile/xiaomi/xiaomi-mi11-3.png";
-import xiaomi_mi11_ultra_1 from "../images/Single Product/mobile/xiaomi/xiaomi-mi11-ultra-1.png";
-import xiaomi_mi11_ultra_2 from "../images/Single Product/mobile/xiaomi/xiaomi-mi11-ultra-2.png";
-import xiaomi_mi11_ultra_3 from "../images/Single Product/mobile/xiaomi/xiaomi-mi11-ultra-3.png";
-import xiaomi_poco_f3_1 from "../images/Single Product/mobile/xiaomi/xiaomi-poco-f3-1.png";
-import xiaomi_poco_f3_2 from "../images/Single Product/mobile/xiaomi/xiaomi-poco-f3-2.png";
-import xiaomi_poco_f3_3 from "../images/Single Product/mobile/xiaomi/xiaomi-poco-f3-3.png";
-import huawei_p30_pro_1 from "../images/Single Product/mobile/huawei/huawei-p30-pro-1.png";
-import huawei_p30_pro_2 from "../images/Single Product/mobile/huawei/huawei-p30-pro-2.png";
-import huawei_p30_pro_3 from "../images/Single Product/mobile/huawei/huawei-p30-pro-3.png";
-import huawei_p40_pro_1 from "../images/Single Product/mobile/huawei/huawei-p40-pro-1.png";
-import huawei_p40_pro_2 from "../images/Single Product/mobile/huawei/huawei-p40-pro-2.png";
-import huawei_p40_pro_3 from "../images/Single Product/mobile/huawei/huawei-p40-pro-3.png";
-import samsung_note_20_ultra_1 from "../images/Single Product/mobile/samsung/samsung-note-20-ultra-1.png";
-import samsung_note_20_ultra_2 from "../images/Single Product/mobile/samsung/samsung-note-20-ultra-2.png";
-import samsung_note_20_ultra_3 from "../images/Single Product/mobile/samsung/samsung-note-20-ultra-3.png";
-import samsung_s21_ultra_1 from "../images/Single Product/mobile/samsung/samsung-s21-ultra-1.png";
-import samsung_s21_ultra_2 from "../images/Single Product/mobile/samsung/samsung-s21-ultra-2.png";
-import samsung_s21_ultra_3 from "../images/Single Product/mobile/samsung/samsung-s21-ultra-3.png";
-import samsung_s22_ultra_1 from "../images/Single Product/mobile/samsung/samsung-s22-ultra-1.png";
-import samsung_s22_ultra_2 from "../images/Single Product/mobile/samsung/samsung-s22-ultra-2.png";
-import samsung_s22_ultra_3 from "../images/Single Product/mobile/samsung/samsung-s22-ultra-3.png";
+import iphone13_1 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-1.png";
+import iphone13_2 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-2.png";
+import iphone13_3 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-3.png";
+import iphone13_pro_1 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-1.png";
+import iphone13_pro_2 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-2.png";
+import iphone13_pro_3 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-3.png";
+import iphone13_pro_max_1 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-max-1.png";
+import iphone13_pro_max_2 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-pro-max-2.png";
+import xiaomi_mi11_1 from "../../images/Single Product/mobile/xiaomi/xiaomi-mi11-1.png";
+import xiaomi_mi11_2 from "../../images/Single Product/mobile/xiaomi/xiaomi-mi11-2.png";
+import xiaomi_mi11_3 from "../../images/Single Product/mobile/xiaomi/xiaomi-mi11-3.png";
+import xiaomi_mi11_ultra_1 from "../../images/Single Product/mobile/xiaomi/xiaomi-mi11-ultra-1.png";
+import xiaomi_mi11_ultra_2 from "../../images/Single Product/mobile/xiaomi/xiaomi-mi11-ultra-2.png";
+import xiaomi_mi11_ultra_3 from "../../images/Single Product/mobile/xiaomi/xiaomi-mi11-ultra-3.png";
+import xiaomi_poco_f3_1 from "../../images/Single Product/mobile/xiaomi/xiaomi-poco-f3-1.png";
+import xiaomi_poco_f3_2 from "../../images/Single Product/mobile/xiaomi/xiaomi-poco-f3-2.png";
+import xiaomi_poco_f3_3 from "../../images/Single Product/mobile/xiaomi/xiaomi-poco-f3-3.png";
+import huawei_p30_pro_1 from "../../images/Single Product/mobile/huawei/huawei-p30-pro-1.png";
+import huawei_p30_pro_2 from "../../images/Single Product/mobile/huawei/huawei-p30-pro-2.png";
+import huawei_p30_pro_3 from "../../images/Single Product/mobile/huawei/huawei-p30-pro-3.png";
+import huawei_p40_pro_1 from "../../images/Single Product/mobile/huawei/huawei-p40-pro-1.png";
+import huawei_p40_pro_2 from "../../images/Single Product/mobile/huawei/huawei-p40-pro-2.png";
+import huawei_p40_pro_3 from "../../images/Single Product/mobile/huawei/huawei-p40-pro-3.png";
+import samsung_note_20_ultra_1 from "../../images/Single Product/mobile/samsung/samsung-note-20-ultra-1.png";
+import samsung_note_20_ultra_2 from "../../images/Single Product/mobile/samsung/samsung-note-20-ultra-2.png";
+import samsung_note_20_ultra_3 from "../../images/Single Product/mobile/samsung/samsung-note-20-ultra-3.png";
+import samsung_s21_ultra_1 from "../../images/Single Product/mobile/samsung/samsung-s21-ultra-1.png";
+import samsung_s21_ultra_2 from "../../images/Single Product/mobile/samsung/samsung-s21-ultra-2.png";
+import samsung_s21_ultra_3 from "../../images/Single Product/mobile/samsung/samsung-s21-ultra-3.png";
+import samsung_s22_ultra_1 from "../../images/Single Product/mobile/samsung/samsung-s22-ultra-1.png";
+import samsung_s22_ultra_2 from "../../images/Single Product/mobile/samsung/samsung-s22-ultra-2.png";
+import samsung_s22_ultra_3 from "../../images/Single Product/mobile/samsung/samsung-s22-ultra-3.png";
 
-import asus_rog_1 from "../images/Single Product/laptop/asus/asus-rog-strix-g-1.png";
-import asus_rog_2 from "../images/Single Product/laptop/asus/asus-rog-strix-g-2.png";
-import asus_rog_3 from "../images/Single Product/laptop/asus/asus-rog-strix-g-3.png";
-import asus_tuf_1 from "../images/Single Product/laptop/asus/TUF-Dash-F15-1.png";
-import asus_tuf_2 from "../images/Single Product/laptop/asus/TUF-Dash-F15-2.png";
-import asus_tuf_3 from "../images/Single Product/laptop/asus/TUF-Dash-F15-3.png";
-import asus_zenBook_1 from "../images/Single Product/laptop/asus/ZenBook-Pro-Duo-1.png";
-import asus_zenBook_2 from "../images/Single Product/laptop/asus/ZenBook-Pro-Duo-2.png";
-import asus_zenBook_3 from "../images/Single Product/laptop/asus/ZenBook-Pro-Duo-3.png";
-import lenovo_legion_1 from "../images/Single Product/laptop/lenovo/lenovo-5-pro-1.png";
-import lenovo_legion_2 from "../images/Single Product/laptop/lenovo/lenovo-5-pro-2.png";
-import lenovo_legion_3 from "../images/Single Product/laptop/lenovo/lenovo-5-pro-3.png";
-import macBook_pro_1 from "../images/Single Product/laptop/apple/macbook-pro-1.png";
-import macBook_pro_2 from "../images/Single Product/laptop/apple/macbook-pro-2.png";
-import macBook_pro_3 from "../images/Single Product/laptop/apple/macbook-pro-3.png";
+import asus_rog_1 from "../../images/Single Product/laptop/asus/asus-rog-strix-g-1.png";
+import asus_rog_2 from "../../images/Single Product/laptop/asus/asus-rog-strix-g-2.png";
+import asus_rog_3 from "../../images/Single Product/laptop/asus/asus-rog-strix-g-3.png";
+import asus_tuf_1 from "../../images/Single Product/laptop/asus/TUF-Dash-F15-1.png";
+import asus_tuf_2 from "../../images/Single Product/laptop/asus/TUF-Dash-F15-2.png";
+import asus_tuf_3 from "../../images/Single Product/laptop/asus/TUF-Dash-F15-3.png";
+import asus_zenBook_1 from "../../images/Single Product/laptop/asus/ZenBook-Pro-Duo-1.png";
+import asus_zenBook_2 from "../../images/Single Product/laptop/asus/ZenBook-Pro-Duo-2.png";
+import asus_zenBook_3 from "../../images/Single Product/laptop/asus/ZenBook-Pro-Duo-3.png";
+import lenovo_legion_1 from "../../images/Single Product/laptop/lenovo/lenovo-5-pro-1.png";
+import lenovo_legion_2 from "../../images/Single Product/laptop/lenovo/lenovo-5-pro-2.png";
+import lenovo_legion_3 from "../../images/Single Product/laptop/lenovo/lenovo-5-pro-3.png";
+import macBook_pro_1 from "../../images/Single Product/laptop/apple/macbook-pro-1.png";
+import macBook_pro_2 from "../../images/Single Product/laptop/apple/macbook-pro-2.png";
+import macBook_pro_3 from "../../images/Single Product/laptop/apple/macbook-pro-3.png";
 
-import apple_watch_7_1 from "../images/Single Product/smartWatch/apple/1.png";
-import apple_watch_7_2 from "../images/Single Product/smartWatch/apple/2.png";
+import apple_watch_7_1 from "../../images/Single Product/smartWatch/apple/1.png";
+import apple_watch_7_2 from "../../images/Single Product/smartWatch/apple/2.png";
 
 
 
-const initialState = [
+const filtersSortTypes = {
+    activeSortBtn: 1,
+    activeTypeBtn: 1,
+    brandslist : {
+        apple: false,
+        samsung: false,
+        xiaomi: false,
+        huawei: false,
+        asus: false,
+        lenovo: false,
+        msi: false,
+    }
+}
+
+let brandsListGlobal;
+
+const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
+    switch (action.type) {
+        case "CHANGE_BRANDS":{
+            const value = (Object.keys(state.brandslist)).find((brand) => brand === action.payload);
+            let brandslist = {...state.brandslist};
+            brandslist[action.payload] = !brandslist[value];
+
+            state = {
+                ...state,
+                brandslist
+            }
+            brandsListGlobal = brandslist;
+            return state;
+        }
+        case "CHANGE_ACTIVE_TYPE_BTN":{
+            let activeTypeBtn = state.activeTypeBtn;
+            activeTypeBtn = action.payload;
+            
+            state = {
+                ...state,
+                activeTypeBtn
+            }
+            return state;
+        }
+
+        case "CHANGE_ACTIVE_SORT_BTN":{
+            let activeSortBtn = state.activeSortBtn;
+            activeSortBtn = action.payload;
+            
+            state = {
+                ...state,
+                activeSortBtn
+            }
+            return state;
+        }
+
+        default:
+            return state;
+    }
+}
+
+
+
+
+const products = [
     {
         id: 1,
         type: "mobile",
@@ -251,14 +311,30 @@ const initialState = [
     },
 ]
 
-
-const productsReducer = (state= initialState, action) => {
+const productsReducer = (state= products, action) => {
     switch (action.type) {
         case "GET_PRODUCTS":
-            return initialState;
+            return products;
 
         case "SELECT_BRANDS":
-            return state;
+            
+            let productsCopyied = [...state];
+            let trueBrands = [] ;
+            let outputProducts = [];
+
+            for (const brand in brandsListGlobal) {
+                if (brandsListGlobal[brand] === true ) {
+                    trueBrands.push(brand)
+                }
+            }
+            productsCopyied.map((product) =>(
+                trueBrands.map((brand) => (
+                    product.brand === brand && outputProducts.push(product)
+                ))
+            ))
+            if (outputProducts.length >= 1) return outputProducts
+            return state
+            
     
         case "SELECT_TYPE":
             return state;
@@ -267,6 +343,11 @@ const productsReducer = (state= initialState, action) => {
             return state;
             
         default:
-            return initialState;
+            return products;
     }
 }
+
+
+
+
+export {filtersSortTypesReducer, productsReducer}

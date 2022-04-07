@@ -5,12 +5,16 @@ import ShopPage from "./pages/ShopPage";
 import CartPage from "./pages/CartPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProductsContext from "./contexts/ProductsContext";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
+
 
 function App() {
 
 
   return (
-    <ProductsContext>
+    <Provider store={store}>
       <div className="bg-gray-100 h-full">
         <Routes>
           <Route path="/shop" element={<ShopPage />} />
@@ -22,7 +26,7 @@ function App() {
   
 
       </div>  
-    </ProductsContext>
+    </Provider>
   );
 }
 

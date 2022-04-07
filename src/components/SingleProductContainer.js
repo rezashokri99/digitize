@@ -8,11 +8,12 @@ import watchOne from "../images/Cart/1.png";
 import Colors from "./Colors";
 import { productsProvider } from "../contexts/ProductsContext";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ShopContainer = () => {
   
-  // context
-  const products = useContext(productsProvider);
+  // redux state
+  const products = useSelector(state => state);
   
   // params id of url
   const paramsId = useParams().id;

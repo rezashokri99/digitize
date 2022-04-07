@@ -1,18 +1,34 @@
-const getProducts = () => {
+const getProductsAction = () => {
     return {type: "GET_PRODUCTS"}
 }
 
-const selectBrands = () => {
-    return {type: "SELECT_BRANDS"}
+const selectBrandsAction = (id) => {
+    return {type: "SELECT_BRANDS", payload: id}
 }
 
-const selectType = () => {
+const selectTypeAction = () => {
     return {type: "SELECT_TYPE"}
 }
 
-const selectSort = () => {
+const selectSortAction = () => {
     return {type: "SELECT_SORT"}
 }
 
+export {getProductsAction, selectBrandsAction, selectTypeAction, selectSortAction};
 
-export {getProducts, selectBrands, selectType, selectSort};
+
+
+const changeBrandsAction = (id) => {
+    return {type: "CHANGE_BRANDS", payload: id}
+}
+
+const changeTypeAction = (id) => {
+    return {type: "CHANGE_ACTIVE_TYPE_BTN", payload: id}
+}
+
+const changeSortAction = (id) => {
+    return {type: "CHANGE_ACTIVE_SORT_BTN", payload: id}
+}
+
+
+export {changeBrandsAction, changeTypeAction, changeSortAction}
