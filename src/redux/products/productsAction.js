@@ -6,12 +6,12 @@ const selectBrandsAction = (id) => {
     return {type: "SELECT_BRANDS", payload: id}
 }
 
-const selectTypeAction = () => {
-    return {type: "SELECT_TYPE"}
+const selectTypeAction = (id) => {
+    return {type: "SELECT_TYPE", payload: id}
 }
 
-const selectSortAction = () => {
-    return {type: "SELECT_SORT"}
+const selectSortAction = (id) => {
+    return {type: "SELECT_SORT", payload: id}
 }
 
 export {getProductsAction, selectBrandsAction, selectTypeAction, selectSortAction};

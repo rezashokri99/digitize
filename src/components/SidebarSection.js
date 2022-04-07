@@ -3,7 +3,7 @@ import { useState } from "react";
 import InputRange from "react-input-range";
 import { useDispatch, useSelector } from "react-redux";
 import "../../node_modules/react-input-range/lib/css/index.css";
-import { changeBrandsAction, changeTypeAction, selectBrandsAction } from "../redux/products/productsAction";
+import { selectTypeAction, changeBrandsAction, changeTypeAction, selectBrandsAction } from "../redux/products/productsAction";
 
 const SidebarSection = ()=> {
 
@@ -18,9 +18,16 @@ const SidebarSection = ()=> {
     // brandslist
     const {brandslist} = allFiltersState;
 
+    // brands selected handler 
     const brandsSelectedHandler = (e) => {
         dispatch(changeBrandsAction(e.target.id));
         dispatch(selectBrandsAction(e.target.id));
+    }
+
+    // active type btn selected
+    const activeTypeBtnHandler = (id) => {
+        dispatch(changeTypeAction(id));
+        dispatch(selectTypeAction(id));
     }
 
     
@@ -41,7 +48,7 @@ const SidebarSection = ()=> {
                     <p className="text-xl font-bold text-orange-500 mb-5">دسته بندی</p>
                     <ul>
                         <li>
-                            <a href="#" onClick={() => dispatch(changeTypeAction(1))} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 1 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => activeTypeBtnHandler(1)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 1 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="10.5" cy="9.5" r="9.5" fill="#AFAFAF" fillOpacity=".29"/>
@@ -53,7 +60,7 @@ const SidebarSection = ()=> {
                             </a>
                         </li>
                         <li>
-                            <a href="#" onClick={() => dispatch(changeTypeAction(2))} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 2 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => activeTypeBtnHandler(2)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 2 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="10.5" cy="9.5" r="9.5" fill="#AFAFAF" fillOpacity=".29"/>
@@ -65,7 +72,7 @@ const SidebarSection = ()=> {
                             </a>
                         </li>
                         <li >
-                            <a href="#" onClick={() => dispatch(changeTypeAction(3))} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 my-1 ${activeTypeBtn === 3 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => activeTypeBtnHandler(3)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 my-1 ${activeTypeBtn === 3 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="11.5" cy="9.5" r="9.5" fill="#AFAFAF" fillOpacity=".29"/>
@@ -76,7 +83,7 @@ const SidebarSection = ()=> {
                             </a>
                         </li>
                         <li>
-                            <a href="#" onClick={() => dispatch(changeTypeAction(4))} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 4 ? "text-slate-800" : "text-gray-400"}`}>
+                            <a href="#" onClick={() => activeTypeBtnHandler(4)} className={`cursor-pointer hover:bg-gray-50 rounded select-none flex flex-row items-center gap-x-2 py-2 ${activeTypeBtn === 4 ? "text-slate-800" : "text-gray-400"}`}>
                                 <div>
                                     <svg className="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="11.5" cy="9.5" r="9.5" fill="#AFAFAF" fillOpacity=".29"/>

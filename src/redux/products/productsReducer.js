@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import iphone13_1 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-1.png";
 import iphone13_2 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-2.png";
 import iphone13_3 from "../../images/Single Product/mobile/iphone/Apple-iPhone-13-3.png";
@@ -52,6 +53,12 @@ import apple_watch_7_2 from "../../images/Single Product/smartWatch/apple/2.png"
 
 
 
+import store from "../store";
+
+
+
+
+
 const filtersSortTypes = {
     activeSortBtn: 1,
     activeTypeBtn: 1,
@@ -67,6 +74,8 @@ const filtersSortTypes = {
 }
 
 let brandsListGlobal;
+let activeTypeBtnGloal;
+let activeSortBtnGloal;
 
 const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
     switch (action.type) {
@@ -90,6 +99,7 @@ const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
                 ...state,
                 activeTypeBtn
             }
+            activeTypeBtnGloal = activeTypeBtn;
             return state;
         }
 
@@ -101,6 +111,7 @@ const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
                 ...state,
                 activeSortBtn
             }
+            activeSortBtnGloal = activeSortBtn;
             return state;
         }
 
@@ -312,35 +323,183 @@ const products = [
 ]
 
 const productsReducer = (state= products, action) => {
+    let productsCopyied = [...state];
+    
     switch (action.type) {
         case "GET_PRODUCTS":
-            return products;
+            return state;
 
-        case "SELECT_BRANDS":
+        case "SELECT_BRANDS":{
+            // productsCopyied = [...state];
             
-            let productsCopyied = [...state];
-            let trueBrands = [] ;
-            let outputProducts = [];
+            // let trueBrands = [] ;
+            // let outputProducts = [];
 
-            for (const brand in brandsListGlobal) {
-                if (brandsListGlobal[brand] === true ) {
-                    trueBrands.push(brand)
+            // for (const brand in brandsListGlobal) {
+            //     if (brandsListGlobal[brand] === true ) {
+            //         trueBrands.push(brand)
+            //     }
+            // }
+            // productsCopyied.map((product) =>(
+            //     trueBrands.map((brand) => (
+            //         product.brand === brand && outputProducts.push(product)
+            //     ))
+            // ))
+            // if (outputProducts.length >= 1) productsCopyied = outputProducts;
+            // return productsCopyied
+
+            // productsCopyied = [...state];
+            const selectBrands = () => {
+                
+                let trueBrands = [] ;
+                let outputProducts = [];
+
+                for (const brand in brandsListGlobal) {
+                    if (brandsListGlobal[brand] === true ) {
+                        trueBrands.push(brand)
+                    }
                 }
-            }
-            productsCopyied.map((product) =>(
-                trueBrands.map((brand) => (
-                    product.brand === brand && outputProducts.push(product)
+                productsCopyied.map((product) =>(
+                    trueBrands.map((brand) => (
+                        product.brand === brand && outputProducts.push(product)
+                    ))
                 ))
-            ))
-            if (outputProducts.length >= 1) return outputProducts
-            return state
+                if (outputProducts.length >= 1) productsCopyied = outputProducts;
+                return productsCopyied
+            }
+
+            if (activeSortBtnGloal === 1) {
+                productsCopyied = state;
+            }else if (activeSortBtnGloal === 2) {
+                productsCopyied = productsCopyied.sort((a, b) => {
+                    return (a.price).split(",").join("") - (b.price).split(",").join("");
+                });
+            } else if (activeSortBtnGloal === 3) {
+                productsCopyied = productsCopyied.sort((a, b) => {
+                    return (b.price).split(",").join("") - (a.price).split(",").join("");
+                });
+            }else if (activeSortBtnGloal === 4) {
+                productsCopyied = state;
+            }
+            
+            if (activeTypeBtnGloal === 2) {
+                productsCopyied = selectBrands()
+                
+                return productsCopyied.filter((product) => product.type === "mobile" );
+            } else if (activeTypeBtnGloal === 3) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "laptop" )
+            } else if (activeTypeBtnGloal === 4) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "smartWatch" )
+            }else {
+                productsCopyied = selectBrands()
+                return productsCopyied
+            }
             
     
-        case "SELECT_TYPE":
-            return state;
+        }
         
-        case "SELECT_SORT":
-            return state;
+        case "SELECT_TYPE":
+            // productsCopyied = [...state];
+            const selectBrands = () => {
+
+                let trueBrands = [] ;
+                let outputProducts = [];
+
+                for (const brand in brandsListGlobal) {
+                    if (brandsListGlobal[brand] === true ) {
+                        trueBrands.push(brand)
+                    }
+                }
+                productsCopyied.map((product) =>(
+                    trueBrands.map((brand) => (
+                        product.brand === brand && outputProducts.push(product)
+                    ))
+                ))
+                if (outputProducts.length >= 1) productsCopyied = outputProducts;
+                return productsCopyied
+            }
+            
+            if (activeSortBtnGloal === 1) {
+                productsCopyied = state;
+            }else if (activeSortBtnGloal === 2) {
+                productsCopyied = productsCopyied.sort((a, b) => {
+                    return (a.price).split(",").join("") - (b.price).split(",").join("");
+                });
+            } else if (activeSortBtnGloal === 3) {
+                productsCopyied = productsCopyied.sort((a, b) => {
+                    return (b.price).split(",").join("") - (a.price).split(",").join("");
+                });
+            }else if (activeSortBtnGloal === 4) {
+                productsCopyied = state;
+            }
+
+            if (activeTypeBtnGloal === 2) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "mobile" );
+            } else if (activeTypeBtnGloal === 3) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "laptop" )
+            } else if (activeTypeBtnGloal === 4) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "smartWatch" )
+            }else {
+                productsCopyied = selectBrands()
+                return productsCopyied
+            }
+            
+        
+        case "SELECT_SORT":{
+            const selectBrands = () => {
+                
+                let trueBrands = [] ;
+                let outputProducts = [];
+
+                for (const brand in brandsListGlobal) {
+                    if (brandsListGlobal[brand] === true ) {
+                        trueBrands.push(brand)
+                    }
+                }
+                productsCopyied.map((product) =>(
+                    trueBrands.map((brand) => (
+                        product.brand === brand && outputProducts.push(product)
+                    ))
+                ))
+                if (outputProducts.length >= 1) productsCopyied = outputProducts;
+                return productsCopyied
+            }
+
+            if (activeSortBtnGloal === 1) {
+                productsCopyied = state;
+            }else if (activeSortBtnGloal === 2) {
+                productsCopyied = productsCopyied.sort((a, b) => {
+                    return (a.price).split(",").join("") - (b.price).split(",").join("");
+                });
+            } else if (activeSortBtnGloal === 3) {
+                productsCopyied = productsCopyied.sort((a, b) => {
+                    return (b.price).split(",").join("") - (a.price).split(",").join("");
+                });
+            }else if (activeSortBtnGloal === 4) {
+                productsCopyied = state;
+            }
+            
+            if (activeTypeBtnGloal === 2) {
+                productsCopyied = selectBrands()
+                
+                return productsCopyied.filter((product) => product.type === "mobile" );
+            } else if (activeTypeBtnGloal === 3) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "laptop" )
+            } else if (activeTypeBtnGloal === 4) {
+                productsCopyied = selectBrands()
+                return productsCopyied.filter((product) => product.type === "smartWatch" )
+            }else {
+                productsCopyied = selectBrands()
+                return productsCopyied
+            }
+        }
+        
             
         default:
             return products;

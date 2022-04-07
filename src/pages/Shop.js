@@ -4,7 +4,7 @@ import InputRange from "react-input-range";
 import { useDispatch, useSelector } from "react-redux";
 import BarLogo from "../components/BarLogo";
 import Card from "../components/Card";
-import { changeBrandsAction, changeSortAction, selectBrandsAction } from "../redux/products/productsAction";
+import { changeBrandsAction, changeSortAction, selectBrandsAction, selectSortAction } from "../redux/products/productsAction";
 
 const Shop = ({brandsListHandler, productsForRender}) => {
 
@@ -22,10 +22,16 @@ const Shop = ({brandsListHandler, productsForRender}) => {
     //brandslist
     const {brandslist} = allFiltersState;
     
-
+    // brands Selected Handler
     const brandsSelectedHandler = (e) => {
         dispatch(changeBrandsAction(e.target.id));
         dispatch(selectBrandsAction(e.target.id));
+    }
+
+    // active Sort Btn Handler
+    const activeSortBtnHandler = (id) => {
+        dispatch(changeSortAction(id));
+        dispatch(selectSortAction(id));
     }
 
 
@@ -278,19 +284,19 @@ const Shop = ({brandsListHandler, productsForRender}) => {
                     </div>
 
                     <div onClick={() => setOpenSortMobile(false)} className="flex flex-col">
-                        <button onClick={() => dispatch(changeSortAction((1)))} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 1 && "text-slate-800 font-bold bg-gray-100"}`}>
+                        <button onClick={() => activeSortBtnHandler(1)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 1 && "text-slate-800 font-bold bg-gray-100"}`}>
                         <span>محبوب ترین</span>
                         {activeSortBtn === 1 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
                         </button>
-                        <button onClick={() => dispatch(changeSortAction((2)))} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 2 && "text-slate-800 font-bold bg-gray-100"}`}>
+                        <button onClick={() => activeSortBtnHandler(2)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 2 && "text-slate-800 font-bold bg-gray-100"}`}>
                             <span>ارزان ترین</span>
                             {activeSortBtn === 2 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
                         </button>
-                        <button onClick={() => dispatch(changeSortAction((3)))} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 3 && "text-slate-800 font-bold bg-gray-100"}`}>
+                        <button onClick={() => activeSortBtnHandler(3)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 3 && "text-slate-800 font-bold bg-gray-100"}`}>
                             <span>گران ترین</span>
                             {activeSortBtn === 3 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
                         </button>
-                        <button onClick={() => dispatch(changeSortAction((4)))} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 4 && "text-slate-800 font-bold bg-gray-100"}`}>
+                        <button onClick={() => activeSortBtnHandler(4)} className={`hover:bg-gray-50 text-right py-2 rounded-md px-2 relative ${activeSortBtn === 4 && "text-slate-800 font-bold bg-gray-100"}`}>
                             <span>پرفروش ترین</span>
                             {activeSortBtn === 4 && <span className="h-1.5 w-1.5 rounded-full bg-orange-600 absolute top-2.5 left-2"></span>}
                         </button>
