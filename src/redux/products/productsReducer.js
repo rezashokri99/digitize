@@ -80,6 +80,10 @@ let activeSortBtnGloal;
 const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
     switch (action.type) {
         case "CHANGE_BRANDS":{
+            if (action.payload === "remove") {
+                state = filtersSortTypes;
+                brandsListGlobal = filtersSortTypes.brandsListGlobal;
+            }
             const value = (Object.keys(state.brandslist)).find((brand) => brand === action.payload);
             let brandslist = {...state.brandslist};
             brandslist[action.payload] = !brandslist[value];
@@ -330,25 +334,10 @@ const productsReducer = (state= products, action) => {
             return state;
 
         case "SELECT_BRANDS":{
-            // productsCopyied = [...state];
-            
-            // let trueBrands = [] ;
-            // let outputProducts = [];
-
-            // for (const brand in brandsListGlobal) {
-            //     if (brandsListGlobal[brand] === true ) {
-            //         trueBrands.push(brand)
-            //     }
-            // }
-            // productsCopyied.map((product) =>(
-            //     trueBrands.map((brand) => (
-            //         product.brand === brand && outputProducts.push(product)
-            //     ))
-            // ))
-            // if (outputProducts.length >= 1) productsCopyied = outputProducts;
-            // return productsCopyied
-
-            // productsCopyied = [...state];
+            if (action.payload === "remove") {
+                brandsListGlobal = filtersSortTypes.brandsListGlobal;
+                productsCopyied = products;
+            }
             const selectBrands = () => {
                 
                 let trueBrands = [] ;

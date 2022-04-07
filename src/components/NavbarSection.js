@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import logo from "../images/logo_two.svg";
 import { changeTypeAction, selectTypeAction } from "../redux/products/productsAction";
 
@@ -14,8 +15,13 @@ const NavbarSection = () => {
     // activeTypeBtn 
     const {activeTypeBtn} = allFiltersState;
 
+    //navigate
+    const navigate = useNavigate();
+
+
     // active type btn selected
     const activeTypeBtnHandler = (id) => {
+      navigate("/shop")
       dispatch(changeTypeAction(id));
       dispatch(selectTypeAction(id));
     }
@@ -31,6 +37,7 @@ const NavbarSection = () => {
             <li><a onClick={() => activeTypeBtnHandler(2)} className={`${activeTypeBtn ? "font-extrabold": "font-medium"}hover:bg-gray-50 md:text-base lg:text-xl text-slate-800 py-4 md:px-1.5 lg:px-2`} href="#">تلفن همراه</a></li>
             <li><a onClick={() => activeTypeBtnHandler(3)} className={`${activeTypeBtn ? "font-extrabold": "font-medium"}hover:bg-gray-50 md:text-base lg:text-xl text-slate-800 py-4 md:px-1.5 lg:px-2`} href="#">لپ تاپ</a></li>
             <li><a onClick={() => activeTypeBtnHandler(4)} className={`${activeTypeBtn ? "font-extrabold": "font-medium"}hover:bg-gray-50 md:text-base lg:text-xl text-slate-800 py-4 md:px-1.5 lg:px-2`} href="#">ساعت هوشمند</a></li>
+            <li><a onClick={() => navigate("/cart")} className={`hover:bg-gray-50 md:text-base lg:text-xl text-slate-800 py-4 md:px-1.5 lg:px-2`} href="#">سبد خرید</a></li>
           </ul>
           <div className="flex items-center bg-gray-100 md:w-2/5 lg:w-2/6 max-w-xxl rounded overflow-hidden">
             <span>

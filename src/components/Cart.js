@@ -1,13 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import image from "../images/Cart/2.png";
 import BarBackBtn from "./BarBackBtn";
+import ProductInCart from "./ProductInCart";
 
 
 
 const Cart = () => {
+    
+    // redux state
+    const cartState = useSelector(state => state.cartState);
+    
+    // all price
+    const allPrice = cartState.reduce((sum, product) => {
+        return sum += (+(product.price).split(",").join("") * product.quantity)
+    },0)
+    
 
-    const [openDiscount, setOpenDiscount] = useState(false)
+    const [openDiscount, setOpenDiscount] = useState(false);
 
   return (
     <div className="mx-auto col-span-12 w-full xs:w-[450px] sm:w-[570px] md:w-full ">
@@ -19,236 +30,12 @@ const Cart = () => {
 
                 {/* items container */}
                 <div className="flex flex-col gap-y-2">
-                    <div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                        <div className="">
-                            <img className="w-14 h-full" src={image} alt="image1" />
-                        </div>
-                        <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                            <span className="text-slate-800">
-                                ساعت هوشمنده اپل سری 7                  
-                            </span>
-                            <span className="text-orange-600">
-                            2,250,000 تومان                 
-                            </span>
-                        </div>
-                        <div className="flex flex-col justify-between items-end">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </span>
-                            <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                                <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                    </svg>
-                                </span>
-                                <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                                <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                    <div className="">
-                        <img className="w-14 h-full" src={image} alt="image1" />
-                    </div>
-                    <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                        <span className="text-slate-800">
-                            ساعت هوشمنده اپل سری 7                  
-                        </span>
-                        <span className="text-orange-600">
-                        2,250,000 تومان                 
-                        </span>
-                    </div>
-                    <div className="flex flex-col justify-between items-end">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </span>
-                        <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                            </span>
-                            <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                    <div className="">
-                        <img className="w-14 h-full" src={image} alt="image1" />
-                    </div>
-                    <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                        <span className="text-slate-800">
-                            ساعت هوشمنده اپل سری 7                  
-                        </span>
-                        <span className="text-orange-600">
-                        2,250,000 تومان                 
-                        </span>
-                    </div>
-                    <div className="flex flex-col justify-between items-end">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </span>
-                        <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                            </span>
-                            <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                    <div className="">
-                        <img className="w-14 h-full" src={image} alt="image1" />
-                    </div>
-                    <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                        <span className="text-slate-800">
-                            ساعت هوشمنده اپل سری 7                  
-                        </span>
-                        <span className="text-orange-600">
-                        2,250,000 تومان                 
-                        </span>
-                    </div>
-                    <div className="flex flex-col justify-between items-end">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </span>
-                        <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                            </span>
-                            <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                    <div className="">
-                        <img className="w-14 h-full" src={image} alt="image1" />
-                    </div>
-                    <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                        <span className="text-slate-800">
-                            ساعت هوشمنده اپل سری 7                  
-                        </span>
-                        <span className="text-orange-600">
-                        2,250,000 تومان                 
-                        </span>
-                    </div>
-                    <div className="flex flex-col justify-between items-end">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </span>
-                        <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                            </span>
-                            <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                    <div className="">
-                        <img className="w-14 h-full" src={image} alt="image1" />
-                    </div>
-                    <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                        <span className="text-slate-800">
-                            ساعت هوشمنده اپل سری 7                  
-                        </span>
-                        <span className="text-orange-600">
-                        2,250,000 تومان                 
-                        </span>
-                    </div>
-                    <div className="flex flex-col justify-between items-end">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </span>
-                        <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                            </span>
-                            <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div><div className="flex h-28 items-stretch justify-between bg-white rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
-                    <div className="">
-                        <img className="w-14 h-full" src={image} alt="image1" />
-                    </div>
-                    <div className="flex flex-col justify-between pb-2 pt-1 text-sm sm:text-base flex-1 mr-1 sm:mr-2 font-medium">
-                        <span className="text-slate-800">
-                            ساعت هوشمنده اپل سری 7                  
-                        </span>
-                        <span className="text-orange-600">
-                        2,250,000 تومان                 
-                        </span>
-                    </div>
-                    <div className="flex flex-col justify-between items-end">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </span>
-                        <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                            </span>
-                            <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 rounded">1</span>
-                            <span className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                    
+                    {
+                        cartState && cartState.map((product) => (
+                            <ProductInCart key={product.id} product={product} />
+                        ))
+                    }
                     
                 </div>
                 
@@ -261,7 +48,7 @@ const Cart = () => {
                                 مجموع قیمت:                             
                         </span>
                         <span className="text-orange-700 text-[17px] font-medium">
-                            6,650,000 تومان                             
+                            {allPrice.toLocaleString('en-US')} تومان                             
                         </span>
                     </div>
                     <div>
@@ -285,7 +72,7 @@ const Cart = () => {
                                 تخفیف:                                      
                                 </span>
                                 <span className="text-slate-900 text-[17px] font-medium">
-250,000 تومان                                   
+2,250,000 تومان                                   
                                 </span>
                             </div>
                             <div className="flex justify-between">
@@ -293,7 +80,7 @@ const Cart = () => {
                                     قیمت نهایی:                                     
                                 </span>
                                 <span className="text-orange-700 text-[17px] font-medium">
-                                6,440,000 تومان                                   
+                                {(allPrice - 2250000).toLocaleString('en-US')} تومان                                   
                                 </span>
                             </div>
                         </div>

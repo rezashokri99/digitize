@@ -1,24 +1,55 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import BarBackBtn from "./BarBackBtn";
-import iphone13_128 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-1.png";
-import iphone13_128_2 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-2.png";
-import iphone13_128_3 from "../images/Single Product/mobile/iphone/Apple-iPhone-13-3.png";
 import middle from "../images/Single Product/mobile/Middle.png";
-import watchOne from "../images/Cart/1.png";
 import Colors from "./Colors";
-import { productsProvider } from "../contexts/ProductsContext";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, decrease, increase } from "../redux/cart/cartAction";
 
 const ShopContainer = () => {
   
   // redux state
   const products = useSelector(state => state.productsState);
+  const cartState = useSelector(state => state.cartState);
   
+  // redux dispatch
+  const dispatch = useDispatch();
+
   // params id of url
   const paramsId = useParams().id;
   
   const product = products.find((p) => p.id === (+paramsId));
+
+  let prodcutsOfLs = JSON.parse(localStorage.getItem("products"));
+  let carts =[];
+  if (prodcutsOfLs) {
+      carts = prodcutsOfLs
+  }
+
+  
+  const [isInCard, setIsInCard] = useState(carts.find((item) => item.id === product.id));
+  
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product))
+    let hasProduct = cartState.find((item) => item.id === product.id) ? cartState.find((item) => item.id === product.id) : {...product, quantity:1};
+    setIsInCard(hasProduct);
+  }
+
+  const increaseHanlder = () => {
+    dispatch(increase(product));
+    let hasProduct = cartState.find((item) => item.id === product.id);
+    setIsInCard({...isInCard, quantity: hasProduct.quantity});    
+  }
+
+  const decreaseHanlder = () => {
+    dispatch(decrease(product));
+    let hasProduct = cartState.find((item) => item.id === product.id);
+    setIsInCard({...isInCard, quantity: hasProduct.quantity});   
+  }
+
+
+
 
 
   const [imageSelected, setImageSelected] = useState(product.images[1]);
@@ -293,10 +324,19 @@ const ShopContainer = () => {
                       <span>{product.price}</span>
                       <span className="mr-1">تومان</span>
                     </div>
-                    <div className="">
-                        <button className="bg-orange-500 flex lg:px-10  justify-center py-3 px-5 w-fit items-center text-stone-50 font-medium text-lg rounded-md">
-                          اضافه به سبد خرید
+                    <div className={`${isInCard && isInCard.quantity && "flex md:w-56 md:justify-end md:gap-x-1 lg:justify-center lg:gap-x-3 items-center lg:w-full"}`}>
+                      {
+                        isInCard && isInCard.quantity ?
+                        <>
+                          <button onClick={increaseHanlder} className="bg-orange-500 flex md:px-5  justify-center py-2 px-5 items-center text-stone-50 text-2xl rounded-md">+</button>
+                          <span className="bg-white border-2 border-orange-500 flex md:px-3 justify-center py-2 px-5 items-center text-orange-500 text-2xl rounded-md">{isInCard.quantity}</span>
+                          <button onClick={decreaseHanlder} className="bg-orange-500 flex md:px-5  justify-center py-2 px-5 items-center text-stone-50 text-2xl rounded-md">-</button>
+                        </>
+                        :
+                        <button onClick={addToCartHandler} className="bg-orange-500 flex lg:px-10  justify-center py-3 px-5 w-fit items-center text-stone-50 font-medium text-lg rounded-md">
+اضافه به سبد خرید                           
                         </button>
+                      }
                     </div>
                   </div>
                 </div>
@@ -591,10 +631,19 @@ const ShopContainer = () => {
       {/* btn add to cart */}
       <div className="md:hidden bg-white w-full fixed bottom-0 left-0 rounded-tr-md rounded-tl-md z-20">
         <div className="w-11/12 xs:w-96 flex items-center justify-center px-2px py-2 mx-auto">
-          <div className="flex-auto">
-            <button className="bg-orange-500 flex justify-center py-4 px-7 items-center text-stone-50 font-medium text-xl rounded-md">
-              اضافه به سبد خرید
-            </button>
+          <div className="flex-auto flex gap-x-3">
+           {
+              isInCard && isInCard.quantity ?
+              <>
+                <button onClick={increaseHanlder} className="bg-orange-500 flex  justify-center py-2 px-4 items-center text-stone-50 text-2xl rounded-md">+</button>
+                <span className="bg-white border-2 border-orange-500 flex justify-center py-2 px-3 items-center text-orange-500 text-2xl rounded-md">{isInCard.quantity}</span>
+                <button onClick={decreaseHanlder} className="bg-orange-500 flex  justify-center py-2 px-4 items-center text-stone-50 text-2xl rounded-md">-</button>
+              </>
+              :
+              <button onClick={addToCartHandler} className="bg-orange-500 flex lg:px-10  justify-center py-3 px-5 w-fit items-center text-stone-50 font-medium text-lg rounded-md">
+اضافه به سبد خرید                           
+              </button>
+            }
           </div>
           <div className="flex-1 flex flex-col">
             <span>{product.price}</span>
