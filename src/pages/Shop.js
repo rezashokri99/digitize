@@ -106,7 +106,9 @@ const Shop = ({brandsListHandler, productsForRender}) => {
 
         let trueBrands = [] ;
         for (const brand in brandslist) {
-            brandslist[brand] === true && trueBrands.push(brand)
+            if (brand !== "remove" ) {
+                brandslist[brand] === true && trueBrands.push(brand)
+            }
         }
         
         setFilterBrandsName([...trueBrands])
@@ -114,6 +116,9 @@ const Shop = ({brandsListHandler, productsForRender}) => {
     },[activeSortBtn, brandslist])
     
     
+
+    console.log(filterBrandsName);
+
 
     return (
         <div className="pb-28 px-3 bg-gray-100 dark:bg-slate-800">
