@@ -1,12 +1,55 @@
-import { useNavigate } from "react-router-dom";
+import { useLayoutEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import ToggleDarkMode from "./ToggleDarkMode";
 
 const BarBackBtn = () => {
 
+  // redux all filters
+  const allFiltersState = useSelector(state => state.allFiltersState);
+
+  // redux darkModeState
+  const darkModeState = useSelector(state => state.darkModeState);
+
+  // activeTypeBtn 
+  const { activeTypeBtn } = allFiltersState;
+
+
+  const [titleName, setTitleName] = useState("خانه");
+
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    if (location.pathname === "/") {
+      setTitleName("خانه") ;
+    }
+    if (location.pathname === "/shop") {
+      if (activeTypeBtn === 1) {
+        setTitleName("فروشگاه");
+      }else if (activeTypeBtn === 2) {
+        setTitleName("موبایل");
+      }else if (activeTypeBtn === 3) {
+        setTitleName("لپ تاپ");
+      }else if (activeTypeBtn === 4) {
+        setTitleName("ساعت هوشمند");
+      }
+    }
+    if (location.pathname === "/category") {
+      setTitleName("دسته بندی");
+    }
+    if (location.pathname === "/cart") {
+      setTitleName("سبد پرداخت");
+    }
+    if (location.pathname === "/") {
+      setTitleName("خانه");
+    }
+  },[location.pathname, activeTypeBtn])
+
 
     return (
-        <div className="flex items-center justify-between pt-11 mb-7 md:hidden">
-          <div onClick={() => navigate(-1)} className="w-8 h-8 bg-white rounded-md flex items-center justify-center shadow">
+        <div className="flex items-center justify-between pt-6 mb-7 md:hidden">
+          <div onClick={() => navigate(-1)} className="w-8 h-8 bg-white dark:bg-slate-700 dark:text-stone-100 rounded-md flex items-center justify-center shadow">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -22,23 +65,10 @@ const BarBackBtn = () => {
               />
             </svg>
           </div>
-          <div className="text-slate-800 font-medium text-2xl">
-            گوشی آیفون 13{" "}
+          <div className="text-slate-800 dark:text-stone-100 font-medium text-2xl">
+            {titleName}
           </div>
-          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center shadow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
+          <ToggleDarkMode />
         </div>
     );
 }

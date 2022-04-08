@@ -8,7 +8,7 @@ const ShopContainer = ({brandsListHandler, activeSortBtn, setActiveSortBtn, prod
     return (
         <>
             {/* sort section */}
-            <div className="bg-white hidden md:block md:col-span-9 lg:col-span-10 rounded-md"><SortSection /></div>
+            <div className="bg-white hidden mx-3 md:block md:col-span-9 lg:col-span-10 rounded-md"><SortSection /></div>
             {/* <div className="bg-white hidden md:block md:col-span-9 lg:col-span-10 rounded-md"><SortSection activeSortBtn={activeSortBtn} setActiveSortBtn={setActiveSortBtn} productsForRender={productsForRender} /></div> */}
             
             {/* products section */}

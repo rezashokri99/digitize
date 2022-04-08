@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import InputRange from "react-input-range";
 import { useDispatch, useSelector } from "react-redux";
+import BarBackBtn from "../components/BarBackBtn";
 import BarLogo from "../components/BarLogo";
 import Card from "../components/Card";
 import { changeBrandsAction, changeSortAction, selectBrandsAction, selectSortAction } from "../redux/products/productsAction";
@@ -36,9 +37,11 @@ const Shop = ({brandsListHandler, productsForRender}) => {
 
 
 
+    // filter name for show in mobile size
+    const [filterSortName, setFilterSortName] = useState("محبوب ترین");
+    const [filterBrandsName, setFilterBrandsName] = useState([]);
 
-
-
+    // open and close filters in mobile size
     const [openFilterMobile, setOpenFilterMobile] = useState(false);
     const [openSortMobile, setOpenSortMobile] = useState(false);
 
@@ -90,36 +93,60 @@ const Shop = ({brandsListHandler, productsForRender}) => {
         setOpenFilterMobile(false);
     }
 
+    useLayoutEffect(() => {
+        if (activeSortBtn === 1) {
+            setFilterSortName("محبوب ترین");
+        }else if (activeSortBtn === 2) {
+            setFilterSortName("ارزان ترین");
+        }else if (activeSortBtn === 3) {
+            setFilterSortName("گران ترین");
+        }else if (activeSortBtn === 4) {
+            setFilterSortName("پرفروش ترین");
+        }
+
+        let trueBrands = [] ;
+        for (const brand in brandslist) {
+            brandslist[brand] === true && trueBrands.push(brand)
+        }
+        
+        setFilterBrandsName([...trueBrands])
+
+    },[activeSortBtn, brandslist])
+    
     
 
-
     return (
-        <div className="pb-28 bg-gray-100">
+        <div className="pb-28 px-3 bg-gray-100 dark:bg-slate-800">
             {/* header */}
             <div>
                 
-                {/* bar */}
-                <BarLogo />
+                
+                <div className="mx-3">
+                    {/* bar */}
+                    <BarBackBtn />
+                </div>
 
                 {/* filter and sort btn in mobile */}
                 <div className="flex justify-between items-center gap-x-2 text-center mb-9 px-6px md:hidden">
 
-                    <div onClick={() => setOpenSortMobile(true)} className="w-1/2 bg-white rounded-md h-11 flex items-center justify-center">
+                    {/* sort filter */}
+                    <div onClick={() => setOpenSortMobile(true)} className="w-1/2 bg-white dark:bg-slate-700 rounded-md h-11 flex items-center justify-center">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-500 ml-1 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-500 dark:text-orange-600 ml-1 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
                             </svg>
                         </div>
-                        <span className="text-slate-800 text-base font-medium">محبوب ترین</span>
+                        <span className="text-slate-800 dark:text-stone-100 text-base font-medium">{filterSortName}</span>
                     </div>
 
-                    <div onClick={() => setOpenFilterMobile(true)}  className="w-1/2 bg-white rounded-md h-11 flex items-center justify-center">
+                    {/* brands filter */}
+                    <div onClick={() => setOpenFilterMobile(true)}  className="w-1/2 bg-white dark:bg-slate-700 rounded-md h-11 flex items-center justify-center">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 mr-1 text-gray-400 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                             </svg>
                         </div>
-                        <span className="text-slate-800 text-base font-medium ml-3">فیلتر: برند اپل</span>
+                        <p className={`${filterBrandsName.length >= 1 && `whitespace-nowrap overflow-x-scroll` } dark:text-stone-100 text-slate-800 text-base font-medium ml-3`}>فیلتر: {filterBrandsName.map((brand) => `${brand} `)}</p>
                     </div>
                     
                 </div>

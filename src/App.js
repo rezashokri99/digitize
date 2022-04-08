@@ -5,28 +5,28 @@ import ShopPage from "./pages/ShopPage";
 import CartPage from "./pages/CartPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProductsContext from "./contexts/ProductsContext";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import { useSelector } from "react-redux";
+
 
 
 
 function App() {
 
+  // redux darkModeState
+  const darkModeState = useSelector(state => state.darkModeState);
 
   return (
-    <Provider store={store}>
-      <div className="bg-gray-100 h-full">
-        <Routes>
-          <Route path="/shop" element={<ShopPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/singleProduct/:id" element={<SingleProductPage />} />
-          <Route path="/category" element={<CategoryPage />} />
-          <Route path="/" element={<Navigate to="/shop" />} />
-        </Routes>
-  
-
+      <div className={`${darkModeState === true && "dark"} `}>
+        <div className="bg-gray-100 h-full min-h-screen dark:bg-slate-800">
+          <Routes>
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/singleProduct/:id" element={<SingleProductPage />} />
+            <Route path="/category" element={<CategoryPage />} />
+            <Route path="/" element={<ShopPage />} />
+          </Routes>
+        </div>
       </div>  
-    </Provider>
   );
 }
 
