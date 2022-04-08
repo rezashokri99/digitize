@@ -1166,11 +1166,28 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
+.bg-stone-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 229 228 / var(--tw-bg-opacity));
+}
+.bg-\[\#222F5D\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 47 93 / var(--tw-bg-opacity));
+}
+.fill-slate-800{
+  fill: #1e293b;
+}
+.fill-\[\#222F5D\]{
+  fill: #222F5D;
+}
 .stroke-orange-500{
   stroke: #f97316;
 }
 .stroke-slate-800{
   stroke: #1e293b;
+}
+.stroke-\[\#222F5D\]{
+  stroke: #222F5D;
 }
 .p-2{
   padding: 0.5rem;
@@ -1570,11 +1587,33 @@ select{
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
+.dark .dark\:bg-orange-700{
+  --tw-bg-opacity: 1;
+  background-color: rgb(194 65 12 / var(--tw-bg-opacity));
+}
+.dark .dark\:bg-stone-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 229 228 / var(--tw-bg-opacity));
+}
+.dark .dark\:bg-gray-700{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+.dark .dark\:bg-gray-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+.dark .dark\:fill-stone-200{
+  fill: #e7e5e4;
+}
 .dark .dark\:stroke-orange-600{
   stroke: #ea580c;
 }
 .dark .dark\:stroke-orange-700{
   stroke: #c2410c;
+}
+.dark .dark\:stroke-stone-200{
+  stroke: #e7e5e4;
 }
 .dark .dark\:font-normal{
   font-weight: 400;
@@ -1622,6 +1661,18 @@ select{
 .dark .dark\:text-slate-800{
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
+}
+.dark .dark\:text-slate-700{
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+.dark .dark\:text-stone-700{
+  --tw-text-opacity: 1;
+  color: rgb(68 64 60 / var(--tw-text-opacity));
+}
+.dark .dark\:text-gray-200{
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 .dark .dark\:hover\:bg-gray-700:hover{
   --tw-bg-opacity: 1;
@@ -1871,6 +1922,9 @@ select{
   }
   .lg\:mr-20{
     margin-right: 5rem;
+  }
+  .lg\:block{
+    display: block;
   }
   .lg\:flex{
     display: flex;

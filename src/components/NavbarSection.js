@@ -37,9 +37,9 @@ const NavbarSection = () => {
             <li><a onClick={() => activeTypeBtnHandler(1)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 1 ? "font-extrabold": "font-medium"}`} href="#">خانه</a></li>
             <li><a onClick={() => activeTypeBtnHandler(2)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 2 ? "font-extrabold": "font-medium"}`} href="#">تلفن همراه</a></li>
             <li><a onClick={() => activeTypeBtnHandler(3)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 3 ? "font-extrabold": "font-medium"}`} href="#">لپ تاپ</a></li>
-            <li><a onClick={() => activeTypeBtnHandler(4)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 4 ? "font-extrabold": "font-medium"}`} href="#">ساعت هوشمند</a></li>
+            <li><a onClick={() => activeTypeBtnHandler(4)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 md:hidden lg:block ${activeTypeBtn === 4 ? "font-extrabold": "font-medium"}`} href="#">ساعت هوشمند</a></li>
             <li><a onClick={() => navigate("/cart")} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl  py-4 md:px-1.5 lg:px-2`} href="#">سبد خرید</a></li>
-            <li><ToggleDarkMode /></li>
+            <li className="mr-2"><ToggleDarkMode /></li>
           </ul>
           <div className="flex items-center bg-gray-100 dark:bg-slate-700 md:w-2/6 lg:w-2/6 max-w-xxl rounded overflow-hidden">
             <span>
