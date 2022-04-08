@@ -73,7 +73,7 @@ const Category = () => {
                             <p onClick={() => activeTypeBtnHandler(2)} className="text-orange-500 dark:text-orange-600 absolute left-3 text-sm">مشاهده همه</p>
                             <div className="flex gap-x-2 overflow-x-scroll items-end justify-between">
                                 
-                                <div className="relative w-36 h-48 bg-gray-200 dark:bg-slate-600 pt-4 rounded-lg overflow-hidden">
+                                <div onClick={() => activeTypeBtnHandler(2)} className="relative w-36 h-48 bg-gray-200 dark:bg-slate-600 pt-4 rounded-lg overflow-hidden">
                                     <p className="text-slate-800 dark:text-stone-100 text-center">تلفن همراه</p>
                                     <div className="absolute bottom-0 left-0">
                                         <img src={phonelogo} alt="phone" />
@@ -118,7 +118,7 @@ const Category = () => {
                             <p onClick={() => activeTypeBtnHandler(3)} className="text-orange-500 dark:text-orange-600 absolute left-3 text-sm">مشاهده همه</p>
                             <div className="flex gap-x-2 overflow-x-scroll items-end justify-between">
                                 
-                                <div className="relative w-36 h-48 bg-gray-200 dark:bg-slate-600 pt-4 rounded-lg overflow-hidden">
+                                <div onClick={() => activeTypeBtnHandler(3)} className="relative w-36 h-48 bg-gray-200 dark:bg-slate-600 pt-4 rounded-lg overflow-hidden">
                                     <p className="text-slate-800 dark:text-stone-100 text-center">لپ تاپ</p>
                                     <div className="absolute bottom-0 left-0">
                                         <img src={laptopLogo} alt="phone" />
@@ -163,7 +163,7 @@ const Category = () => {
                             <p onClick={() => activeTypeBtnHandler(4)} className="text-orange-500 dark:text-orange-600 absolute left-3 text-sm">مشاهده همه</p>
                             <div className="flex gap-x-2 overflow-x-scroll items-end justify-between">
                                 
-                                <div className="relative w-36 h-48 bg-gray-200 dark:bg-slate-600 pt-4 rounded-lg overflow-hidden">
+                                <div onClick={() => activeTypeBtnHandler(4)} className="relative w-36 h-48 bg-gray-200 dark:bg-slate-600 pt-4 rounded-lg overflow-hidden">
                                     <p className="text-slate-800 dark:text-stone-100 text-center">ساعت هوشمند</p>
                                     <div className="absolute bottom-0 left-0">
                                         <img src={smartWatchLogo} alt="phone" />
