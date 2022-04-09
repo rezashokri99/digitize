@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart, decrease, increase } from "../../redux/cart/cartAction";
@@ -10,39 +10,39 @@ const AddToCartDesktopSize = () => {
 
     // redux state
     const product = useSelector(state => state.productsState[paramsId], shallowEqual);
+
+    const productQuantity = useSelector(state => state.cartState[[paramsId]] && state.cartState[paramsId].quantity);
+
     const cartState = useSelector(state => state.cartState);
 
     // redux dispatch
     const dispatch = useDispatch();
 
     let prodcutsOfLs = JSON.parse(localStorage.getItem("products"));
-    let carts =[];
-    if (prodcutsOfLs) {
-        carts = prodcutsOfLs
-    }
 
-    const [isInCard, setIsInCard] = useState(carts.find((item) => item.id === product.id));
-  
+    const [isInCard, setIsInCard] = useState(prodcutsOfLs ? prodcutsOfLs[paramsId] : {});
 
-    
+
 
     const addToCartHandler = () => {
         dispatch(addToCart(product))
-        let hasProduct = cartState.find((item) => item.id === product.id) ? cartState.find((item) => item.id === product.id) : {...product, quantity:1};
+        let hasProduct = Object.keys(cartState).find((itemID) => itemID === product.id) ? cartState[product.id] : {...product, quantity:1};
         setIsInCard(hasProduct);
     }
 
     const increaseHanlder = () => {
         dispatch(increase(product));
-        let hasProduct = cartState.find((item) => item.id === product.id);
-        setIsInCard({...isInCard, quantity: hasProduct.quantity});    
+        setIsInCard({...isInCard, quantity: isInCard.quantity + 1});
     }
 
     const decreaseHanlder = () => {
         dispatch(decrease(product));
-        let hasProduct = cartState.find((item) => item.id === product.id);
-        setIsInCard({...isInCard, quantity: hasProduct.quantity});   
+        setIsInCard({...isInCard, quantity: isInCard.quantity - 1}); 
     }
+
+    useEffect(() => {
+        setIsInCard({...cartState[product.id]})
+    },[productQuantity])
     
     return (
         <div className={`${isInCard && isInCard.quantity && "flex md:w-56 md:justify-end md:gap-x-1 lg:justify-center lg:gap-x-3 items-center lg:w-full"}`}>

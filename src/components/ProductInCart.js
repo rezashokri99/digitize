@@ -1,7 +1,11 @@
-import { useDispatch } from "react-redux";
-import { addToCart, decrease, increase, removeItem } from "../redux/cart/cartAction";
+import { useDispatch, useSelector } from "react-redux";
+import { decrease, increase, removeItem } from "../redux/cart/cartAction";
 
-const ProductInCart = ({product}) => {
+const ProductInCart = ({id}) => {
+
+    // redux state
+    const product = useSelector(state => state.cartState[id]);
+    const productQuantity = useSelector(state => state.cartState[id].quantity);
 
     // redux dispatch
     const dispatch = useDispatch();
@@ -10,19 +14,19 @@ const ProductInCart = ({product}) => {
         dispatch(removeItem(product))
         // let hasProduct = cartState.find((item) => item.id === product.id) ? cartState.find((item) => item.id === product.id) : {...product, quantity:1};
         // setIsInCard(hasProduct);
-      }
-    
-      const increaseHanlder = () => {
+    }
+
+    const increaseHanlder = () => {
         dispatch(increase(product));
         // let hasProduct = cartState.find((item) => item.id === product.id);
         // setIsInCard({...isInCard, quantity: hasProduct.quantity});    
-      }
-    
-      const decreaseHanlder = () => {
+    }
+
+    const decreaseHanlder = () => {
         dispatch(decrease(product));
         // let hasProduct = cartState.find((item) => item.id === product.id);
         // setIsInCard({...isInCard, quantity: hasProduct.quantity});   
-      }
+    }
 
     return (
         <div className="flex h-28 items-stretch justify-between bg-white dark:bg-slate-700 rounded-lg py-3 px-2 sm:h-[120px] shadow-lg">
@@ -45,14 +49,14 @@ const ProductInCart = ({product}) => {
                     </svg>
                 </span>
                 <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                    <span onClick={increaseHanlder} className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
+                    <span onClick={increaseHanlder} className="h-7 w-7 flex items-center justify-center rounded-full bg-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                         </svg>
                     </span>
-                    <span className="w-5 h-7 sm:h-9 sm:w-6 flex justify-center items-center border border-orange-500 dark:border-orange-600 dark:text-stone-100 rounded">{product.quantity}</span>
-                    <span onClick={decreaseHanlder} className="w-[18px] h-[18px] sm:h-6 sm:w-6 flex items-center justify-center rounded-full bg-orange-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 stroke-orange-500 dark:stroke-orange-600" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
+                    <span className="h-9 w-6 flex justify-center items-center border border-orange-500 dark:border-orange-600 dark:text-stone-100 rounded">{product.quantity}</span>
+                    <span onClick={decreaseHanlder} className="h-7 w-7 flex items-center justify-center rounded-full bg-orange-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 stroke-orange-500 dark:stroke-orange-600" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
                         </svg>
                     </span>
