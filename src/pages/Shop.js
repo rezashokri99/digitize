@@ -9,8 +9,8 @@ import { changeBrandsAction, changeSortAction, selectBrandsAction, selectSortAct
 
 const Shop = ({brandsListHandler, productsForRender}) => {
 
-    // redux prodocts
-    const products = useSelector(state => state.productsState);
+    // redux prodoctsIds
+    const productsIDS = useSelector(state => Object.keys(state.productsState));
 
     // redux all filters
     const allFiltersState = useSelector(state => state.allFiltersState);
@@ -71,22 +71,6 @@ const Shop = ({brandsListHandler, productsForRender}) => {
     //     {id: 15, title: "ساعت اپل سری 6", price: "4,250,200 تومان",image: watchOne, colorType:"Ten" ,colors: ["indigo", "orange", "yellow"]},
     // ])
 
-    const [colorSelectedAll, setColorSelectedAll] = useState(
-        products.map((prodcut) => {
-            return {[prodcut.id]: prodcut.colors[0]}
-        })
-    )
-    
-    
-    const changeColorHandler = (e, id) => {
-        let NO = (e.target.id).split(" ")[0];
-        let newColor = (e.target.id).split(" ")[1];
-        if (NO) {
-            let colorSelectedAllCopyied = [...colorSelectedAll];
-            colorSelectedAllCopyied[id] = {[NO]: newColor}
-            setColorSelectedAll(colorSelectedAllCopyied);
-        }
-    }
 
     const backdropHandler = () => {
         setOpenSortMobile(false);
@@ -156,8 +140,8 @@ const Shop = ({brandsListHandler, productsForRender}) => {
                 {/* main */}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-8 md:gap-x-6 md:gap-y-12 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {
-                        products.map((product) => (
-                            <Card key={product.id} product={product} colorSelectedAll={colorSelectedAll} changeColorHandler={changeColorHandler} />
+                        productsIDS.map((productID) => (
+                            <Card key={productID} id={[productID]} />
                         ))
                     }
 

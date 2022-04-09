@@ -127,8 +127,8 @@ const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
 
 
 
-const products = [
-    {
+const products = {
+    1: {
         id: 1,
         type: "mobile",
         brand: "apple",
@@ -139,7 +139,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "one"
     },
-    {
+    2: {
         id: 2,
         type: "mobile",
         brand: "huawei",
@@ -150,7 +150,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seven"
     },
-    {
+    3: {
         id: 3,
         type: "laptop",
         brand: "asus",
@@ -161,8 +161,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "twelve"
     },
-    
-    {
+    4: {
         id: 4,
         type: "mobile",
         brand: "xiaomi",
@@ -173,7 +172,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "four"
     },
-    {
+    5: {
         id: 5,
         type: "mobile",
         brand: "samsung",
@@ -184,7 +183,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "nine"
     },
-    {
+    6: {
         id: 6,
         type: "laptop",
         brand: "lenovo",
@@ -195,8 +194,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-    
-    {
+    7: {
         id: 7,
         type: "mobile",
         brand: "apple",
@@ -207,7 +205,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "two"
     },
-    {
+    8: {
         id: 8,
         type: "mobile",
         brand: "huawei",
@@ -218,7 +216,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eight"
     },
-    {
+    9: {
         id: 9,
         type: "laptop",
         brand: "asus",
@@ -229,9 +227,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "thirteen"
     },
-    
-    
-    {
+    10: {
         id: 10,
         type: "mobile",
         brand: "samsung",
@@ -242,7 +238,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "ten"
     },
-    {
+    11: {
         id: 11,
         type: "mobile",
         brand: "samsung",
@@ -253,8 +249,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eleven"
     },
-
-    {
+    12: {
         id: 12,
         type: "mobile",
         brand: "apple",
@@ -265,7 +260,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "there"
     },
-    {
+    13: {
         id: 13,
         type: "mobile",
         brand: "xiaomi",
@@ -276,8 +271,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "five"
     },
-    
-    {
+    14: {
         id: 14,
         type: "laptop",
         brand: "asus",
@@ -288,8 +282,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-
-    {
+    15: {
         id: 15,
         type: "mobile",
         brand: "xiaomi",
@@ -300,8 +293,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "six"
     },
-
-    {
+    16: {
         id: 16,
         type: "laptop",
         brand: "apple",
@@ -312,7 +304,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "sixteen"
     },
-    {
+    17: {
         id: 17,
         type: "smartWatch",
         brand: "apple",
@@ -323,9 +315,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seventeen"
     },
-
-
-    {
+    18: {
         id: 18,
         type: "mobile",
         brand: "apple",
@@ -336,7 +326,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "one"
     },
-    {
+    19: {
         id: 19,
         type: "mobile",
         brand: "huawei",
@@ -347,7 +337,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seven"
     },
-    {
+    20: {
         id: 20,
         type: "laptop",
         brand: "asus",
@@ -358,8 +348,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "twelve"
     },
-    
-    {
+    21: {
         id: 21,
         type: "mobile",
         brand: "xiaomi",
@@ -370,7 +359,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "four"
     },
-    {
+    22: {
         id: 22,
         type: "mobile",
         brand: "samsung",
@@ -381,7 +370,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "nine"
     },
-    {
+    23: {
         id: 23,
         type: "laptop",
         brand: "lenovo",
@@ -392,8 +381,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-    
-    {
+    24: {
         id: 24,
         type: "mobile",
         brand: "apple",
@@ -404,7 +392,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "two"
     },
-    {
+    25: {
         id: 25,
         type: "mobile",
         brand: "huawei",
@@ -415,7 +403,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eight"
     },
-    {
+    26: {
         id: 26,
         type: "laptop",
         brand: "asus",
@@ -426,9 +414,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "thirteen"
     },
-    
-    
-    {
+    27: {
         id: 27,
         type: "mobile",
         brand: "samsung",
@@ -439,7 +425,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "ten"
     },
-    {
+    28: {
         id: 28,
         type: "mobile",
         brand: "samsung",
@@ -450,8 +436,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eleven"
     },
-
-    {
+    29: {
         id: 29,
         type: "mobile",
         brand: "apple",
@@ -462,7 +447,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "there"
     },
-    {
+    30: {
         id: 30,
         type: "mobile",
         brand: "xiaomi",
@@ -473,8 +458,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "five"
     },
-    
-    {
+    31: {
         id: 31,
         type: "laptop",
         brand: "asus",
@@ -485,8 +469,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-
-    {
+    32: {
         id: 32,
         type: "mobile",
         brand: "xiaomi",
@@ -497,8 +480,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "six"
     },
-
-    {
+    33: {
         id: 33,
         type: "laptop",
         brand: "apple",
@@ -509,9 +491,7 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "sixteen"
     },
-
-
-    {
+    34: {
         id: 34,
         type: "smartWatch",
         brand: "apple",
@@ -522,13 +502,10 @@ const products = [
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seventeen"
     },
-
-
-
-]
+}
 
 const productsReducer = (state= products, action) => {
-    let productsCopyied = [...state];
+    let productsCopyied = {...state};
     
     switch (action.type) {
         case "GET_PRODUCTS":
@@ -698,5 +675,5 @@ const productsReducer = (state= products, action) => {
 
 
 
-
 export {filtersSortTypesReducer, productsReducer}
+

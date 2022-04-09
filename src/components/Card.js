@@ -1,9 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Colors from "./Colors";
 
-const Card = ({product, colorSelectedAll ,changeColorHandler}) => {
+const Card = ({id}) => {
     
+    // redux prodocts
+    const product = useSelector(state => state.productsState[id]);
+
+    const [colorSelected, setColorSelected] = useState({[id]: product.colors[0]})
+    
+    const changeColorHandler = (e, id) => {
+        console.log(e);
+        console.log(id);
+        let NO = (e.target.id).split(" ")[0];
+        let newColor = (e.target.id).split(" ")[1];
+        if (NO) {
+            let colorSelectedAllCopyied = [...colorSelected];
+            colorSelectedAllCopyied[id] = {[NO]: newColor}
+            setColorSelected(colorSelectedAllCopyied);
+        }
+    }
+
+
     const navigate = useNavigate()
     const goToSingleProduct = (id) => {
         navigate(`/singleProduct/${id}`)
@@ -22,7 +42,7 @@ const Card = ({product, colorSelectedAll ,changeColorHandler}) => {
                 <div className="flex">
                     {
                         product.colors.map((color) => (
-                            <Colors key={color} color={color} product={product} colorSelectedAll={colorSelectedAll} changeColorHandler={changeColorHandler} />
+                            <Colors key={color} color={color} product={product} colorSelected={colorSelected} changeColorHandler={changeColorHandler} />
                         ))
                     }
                 </div>
