@@ -3,7 +3,7 @@ import BarBackBtn from "./BarBackBtn";
 import middle from "../images/Single Product/mobile/Middle.png";
 import Colors from "./Colors";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { addToCart, decrease, increase } from "../redux/cart/cartAction";
 
 const ShopContainer = () => {

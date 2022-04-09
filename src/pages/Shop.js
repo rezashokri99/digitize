@@ -115,9 +115,6 @@ const Shop = ({brandsListHandler, productsForRender}) => {
 
     },[activeSortBtn, brandslist])
     
-    
-
-    console.log(filterBrandsName);
 
 
     return (
