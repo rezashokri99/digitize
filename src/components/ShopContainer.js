@@ -1,10 +1,7 @@
-import { useContext, useState } from "react";
-import { productsProvider } from "../contexts/ProductsContext";
 import Shop from "../pages/Shop";
 import SortSection from "./SortSection";
 
-const ShopContainer = ({brandsListHandler, activeSortBtn, setActiveSortBtn, productsForRender}) => {
-
+const ShopContainer = () => {
     return (
         <>
             {/* sort section */}

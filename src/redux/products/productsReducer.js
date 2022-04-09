@@ -526,9 +526,9 @@ const productsReducer = (state= products, action) => {
                         trueBrands.push(brand)
                     }
                 }
-                productsCopyied.map((product) =>(
+                Object.keys(productsCopyied).map((productId) =>(
                     trueBrands.map((brand) => (
-                        product.brand === brand && outputProducts.push(product)
+                        productsCopyied[productId].brand === brand && outputProducts.push(productsCopyied[productId])
                     ))
                 ))
                 if (outputProducts.length >= 1) productsCopyied = outputProducts;
@@ -538,27 +538,37 @@ const productsReducer = (state= products, action) => {
             if (activeSortBtnGloal === 1) {
                 productsCopyied = state;
             }else if (activeSortBtnGloal === 2) {
-                productsCopyied = productsCopyied.sort((a, b) => {
-                    return (a.price).split(",").join("") - (b.price).split(",").join("");
+                let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
+                    return (productsCopyied[a].price).split(",").join("") - (productsCopyied[b].price).split(",").join("");
                 });
+                return keyProducts.map((key) => productsCopyied[key]);
             } else if (activeSortBtnGloal === 3) {
-                productsCopyied = productsCopyied.sort((a, b) => {
-                    return (b.price).split(",").join("") - (a.price).split(",").join("");
+                let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
+                    return (productsCopyied[b].price).split(",").join("") - (productsCopyied[a].price).split(",").join("");
                 });
+                return keyProducts.map((key) => productsCopyied[key]);
             }else if (activeSortBtnGloal === 4) {
                 productsCopyied = state;
             }
             
             if (activeTypeBtnGloal === 2) {
-                productsCopyied = selectBrands()
+                productsCopyied = selectBrands();
                 
-                return productsCopyied.filter((product) => product.type === "mobile" );
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "mobile");
+                return keyProducts.map((key) => productsCopyied[key])
+
             } else if (activeTypeBtnGloal === 3) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "laptop" )
+                productsCopyied = selectBrands();
+
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "laptop");
+                return keyProducts.map((key) => productsCopyied[key])
+
             } else if (activeTypeBtnGloal === 4) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "smartWatch" )
+                productsCopyied = selectBrands();
+
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "smartWatch");
+                return keyProducts.map((key) => productsCopyied[key])
+
             }else {
                 productsCopyied = selectBrands()
                 return productsCopyied
@@ -579,9 +589,9 @@ const productsReducer = (state= products, action) => {
                         trueBrands.push(brand)
                     }
                 }
-                productsCopyied.map((product) =>(
+                Object.keys(productsCopyied).map((productId) =>(
                     trueBrands.map((brand) => (
-                        product.brand === brand && outputProducts.push(product)
+                        productsCopyied[productId].brand === brand && outputProducts.push(productsCopyied[productId])
                     ))
                 ))
                 if (outputProducts.length >= 1) productsCopyied = outputProducts;
@@ -591,26 +601,37 @@ const productsReducer = (state= products, action) => {
             if (activeSortBtnGloal === 1) {
                 productsCopyied = state;
             }else if (activeSortBtnGloal === 2) {
-                productsCopyied = productsCopyied.sort((a, b) => {
-                    return (a.price).split(",").join("") - (b.price).split(",").join("");
+                let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
+                    return (productsCopyied[a].price).split(",").join("") - (productsCopyied[b].price).split(",").join("");
                 });
+                return keyProducts.map((key) => productsCopyied[key]);
             } else if (activeSortBtnGloal === 3) {
-                productsCopyied = productsCopyied.sort((a, b) => {
-                    return (b.price).split(",").join("") - (a.price).split(",").join("");
+                let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
+                    return (productsCopyied[b].price).split(",").join("") - (productsCopyied[a].price).split(",").join("");
                 });
+                return keyProducts.map((key) => productsCopyied[key]);
             }else if (activeSortBtnGloal === 4) {
                 productsCopyied = state;
             }
 
             if (activeTypeBtnGloal === 2) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "mobile" );
+                productsCopyied = selectBrands();
+                
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "mobile");
+                return keyProducts.map((key) => productsCopyied[key])
+
             } else if (activeTypeBtnGloal === 3) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "laptop" )
+                productsCopyied = selectBrands();
+
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "laptop");
+                return keyProducts.map((key) => productsCopyied[key])
+
             } else if (activeTypeBtnGloal === 4) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "smartWatch" )
+                productsCopyied = selectBrands();
+
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "smartWatch");
+                return keyProducts.map((key) => productsCopyied[key])
+
             }else {
                 productsCopyied = selectBrands()
                 return productsCopyied
@@ -628,9 +649,9 @@ const productsReducer = (state= products, action) => {
                         trueBrands.push(brand)
                     }
                 }
-                productsCopyied.map((product) =>(
+                Object.keys(productsCopyied).map((productId) =>(
                     trueBrands.map((brand) => (
-                        product.brand === brand && outputProducts.push(product)
+                        productsCopyied[productId].brand === brand && outputProducts.push(productsCopyied[productId])
                     ))
                 ))
                 if (outputProducts.length >= 1) productsCopyied = outputProducts;
@@ -640,27 +661,37 @@ const productsReducer = (state= products, action) => {
             if (activeSortBtnGloal === 1) {
                 productsCopyied = state;
             }else if (activeSortBtnGloal === 2) {
-                productsCopyied = productsCopyied.sort((a, b) => {
-                    return (a.price).split(",").join("") - (b.price).split(",").join("");
+                let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
+                    return (productsCopyied[a].price).split(",").join("") - (productsCopyied[b].price).split(",").join("");
                 });
+                return keyProducts.map((key) => productsCopyied[key]);
             } else if (activeSortBtnGloal === 3) {
-                productsCopyied = productsCopyied.sort((a, b) => {
-                    return (b.price).split(",").join("") - (a.price).split(",").join("");
+                let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
+                    return (productsCopyied[b].price).split(",").join("") - (productsCopyied[a].price).split(",").join("");
                 });
+                return keyProducts.map((key) => productsCopyied[key]);
             }else if (activeSortBtnGloal === 4) {
                 productsCopyied = state;
             }
             
             if (activeTypeBtnGloal === 2) {
-                productsCopyied = selectBrands()
+                productsCopyied = selectBrands();
                 
-                return productsCopyied.filter((product) => product.type === "mobile" );
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "mobile");
+                return keyProducts.map((key) => productsCopyied[key])
+
             } else if (activeTypeBtnGloal === 3) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "laptop" )
+                productsCopyied = selectBrands();
+
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "laptop");
+                return keyProducts.map((key) => productsCopyied[key])
+
             } else if (activeTypeBtnGloal === 4) {
-                productsCopyied = selectBrands()
-                return productsCopyied.filter((product) => product.type === "smartWatch" )
+                productsCopyied = selectBrands();
+
+                let keyProducts = Object.keys(productsCopyied).filter((productID) => productsCopyied[productID].type === "smartWatch");
+                return keyProducts.map((key) => productsCopyied[key])
+
             }else {
                 productsCopyied = selectBrands()
                 return productsCopyied

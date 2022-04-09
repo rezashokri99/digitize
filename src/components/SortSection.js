@@ -1,16 +1,14 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { changeSortAction, selectSortAction } from "../redux/products/productsAction";
 
-const SortSection = ({}) => {
+const SortSection = () => {
     
-    // redux all filters
-    const allFiltersState = useSelector(state => state.allFiltersState);
+    // redux active sort btn filters
+    const activeSortBtn = useSelector(state => state.allFiltersState.activeSortBtn, shallowEqual);
+    
     // redux dispatch
     const dispatch = useDispatch();
 
-    // activeSortBtn 
-    const {activeSortBtn} = allFiltersState;
 
 
     const activeSortBtnHandler = (id) => {

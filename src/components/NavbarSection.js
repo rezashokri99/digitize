@@ -4,28 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/logo_two.svg";
 import { changeTypeAction, selectTypeAction } from "../redux/products/productsAction";
+import NavbarMenu from "./navbar/NavbarMenu";
 import ToggleDarkMode from "./ToggleDarkMode"; 
 
 const NavbarSection = () => {
   
-    // redux all filters
-    const allFiltersState = useSelector(state => state.allFiltersState);
-    // redux dispatch
-    const dispatch = useDispatch();
-
-    // activeTypeBtn 
-    const {activeTypeBtn} = allFiltersState;
-
-    //navigate
-    const navigate = useNavigate();
-
-
-    // active type btn selected
-    const activeTypeBtnHandler = (id) => {
-      navigate("/shop")
-      dispatch(changeTypeAction(id));
-      dispatch(selectTypeAction(id));
-    }
+    
     
     return (
       <div className="hidden md:block w-full bg-white shadow-md sticky top-0 z-20 text-slate-800 dark:bg-slate-800 dark:text-stone-100">
@@ -34,11 +18,7 @@ const NavbarSection = () => {
             <li className="md:ml-2 lg:ml-5">
                 <img src={logo} alt="logo"/>
             </li>
-            <li><a onClick={() => activeTypeBtnHandler(1)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 1 ? "font-extrabold": "font-medium"}`} href="#">خانه</a></li>
-            <li><a onClick={() => activeTypeBtnHandler(2)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 2 ? "font-extrabold": "font-medium"}`} href="#">تلفن همراه</a></li>
-            <li><a onClick={() => activeTypeBtnHandler(3)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 ${activeTypeBtn === 3 ? "font-extrabold": "font-medium"}`} href="#">لپ تاپ</a></li>
-            <li><a onClick={() => activeTypeBtnHandler(4)} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl py-4 md:px-1.5 lg:px-2 md:hidden lg:block ${activeTypeBtn === 4 ? "font-extrabold": "font-medium"}`} href="#">ساعت هوشمند</a></li>
-            <li><a onClick={() => navigate("/cart")} className={`hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg md:text-base lg:text-xl  py-4 md:px-1.5 lg:px-2`} href="#">سبد خرید</a></li>
+            <NavbarMenu />
             <li className="mr-2"><ToggleDarkMode /></li>
           </ul>
           <div className="flex items-center bg-gray-100 dark:bg-slate-700 md:w-2/6 lg:w-2/6 max-w-xxl rounded overflow-hidden">
