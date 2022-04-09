@@ -19,7 +19,7 @@ const Cart = () => {
 
     const [openDiscount, setOpenDiscount] = useState(false);
 
-
+console.log(cartState);
     if (cartState) {
         document.getElementById("root").classList.add("bg-slate-800")
     }else{
@@ -30,7 +30,7 @@ const Cart = () => {
 
   return (
     <div className="mx-auto col-span-12 w-full xs:w-[450px] sm:w-[570px] md:w-full dark:bg-slate-800">
-        <div className={`${openDiscount ? "pb-60" : "pb-52"} grid gap-y-9 grid-cols-12 md:gap-x-2`}>
+        <div className={`${openDiscount ? "pb-60" : "pb-52"} px-3 dark:bg-slate-800 grid gap-y-9 grid-cols-12 md:gap-x-2`}>
             <div className="col-span-12 md:col-span-7 lg:col-span-8">
                 
                 {/* bar */}
@@ -49,8 +49,8 @@ const Cart = () => {
                 
             </div>
 
-            <div className="col-span-12 md:col-span-5 lg:col-span-4 ">
-                <div className={`${openDiscount ? "h-64 md:h-[410px]" : "h-32 md:h-64" } md:sticky relative flex flex-col items-stretch justify-between bg-white dark:bg-slate-700 rounded-lg py-6 md:py-4 md:px-4 px-7 shadow-lg`}>
+            <div className="col-span-12  md:col-span-5 lg:col-span-4 ">
+                <div className={`${openDiscount ? "h-64 md:h-[410px]" : "h-32 md:h-64" }  md:sticky relative flex flex-col items-stretch justify-between bg-white dark:bg-slate-700 rounded-lg py-6 md:py-4 md:px-4 px-7 shadow-lg`}>
                     <div className={`${openDiscount && "mb-6"} flex justify-between items-center`}>
                         <span className="text-slate-900 dark:text-stone-100 font-medium">
                                 مجموع قیمت:                             
@@ -94,7 +94,7 @@ const Cart = () => {
                         </div>
                     </div>
 
-                    <div className="w-full fixed md:static md:mt-5 bottom-[74px] left-0 right-0 rounded-tr-md rounded-tl-md z-20">
+                    <div className="w-full  fixed md:static md:mt-5 bottom-[74px] left-0 right-0 rounded-tr-md rounded-tl-md z-20">
                         <div className="w-11/12 md:w-full xs:w-96 flex gap-y-2 flex-col px-2px py-2 mx-auto">
                             <div className="flex-auto">
                                 <button className="bg-orange-500 w-full flex justify-center py-4 px-7 items-center text-stone-50 font-medium text-xl rounded-md">
