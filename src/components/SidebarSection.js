@@ -2,6 +2,7 @@
 import { useState } from "react";
 import InputRange from "react-input-range";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "../../node_modules/react-input-range/lib/css/index.css";
 import { selectTypeAction, changeBrandsAction, changeTypeAction, selectBrandsAction } from "../redux/products/productsAction";
 
@@ -17,15 +18,19 @@ const SidebarSection = ()=> {
     const {activeTypeBtn} = allFiltersState;
     // brandslist
     const {brandslist} = allFiltersState;
+    
+    
+    const navigate = useNavigate();
 
     // brands selected handler 
     const brandsSelectedHandler = (e) => {
         dispatch(changeBrandsAction(e.target.id));
         dispatch(selectBrandsAction(e.target.id));
     }
-
+    
     // active type btn selected
     const activeTypeBtnHandler = (id) => {
+        navigate("/shop")
         dispatch(changeTypeAction(id));
         dispatch(selectTypeAction(id));
     }
