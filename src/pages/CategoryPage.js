@@ -1,5 +1,5 @@
-import Category from "../components/Category";
-import FooterMenu from "../components/FooterMenu";
+import Category from "../components/categoryMobile/Category";
+import FooterMenu from "../components/FooterMenuMobile/FooterMenu";
 
 const ShopSection = () => {
     return (

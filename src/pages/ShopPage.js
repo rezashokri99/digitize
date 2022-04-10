@@ -1,7 +1,7 @@
-import ShopContainer from "../components/ShopContainer";
-import NavbarSection from "../components/NavbarSection";
-import SidebarSection from "../components/SidebarSection";
-import FooterMenu from "../components/FooterMenu";
+import ShopContainer from "../components/shop/ShopContainer";
+import NavbarSection from "../components/navbar/NavbarSection";
+import SidebarSection from "../components/sidebarContainer/SidebarSection";
+import FooterMenu from "../components/FooterMenuMobile/FooterMenu";
 
 
 

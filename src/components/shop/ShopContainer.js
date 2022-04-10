@@ -1,4 +1,5 @@
-import Shop from "../pages/Shop";
+import { memo } from "react";
+import Shop from "./Shop";
 import SortSection from "./SortSection";
 
 const ShopContainer = () => {
@@ -15,4 +16,4 @@ const ShopContainer = () => {
     );
 }
  
-export default ShopContainer;
+export default memo(ShopContainer);

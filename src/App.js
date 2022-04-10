@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 function App() {
 
   // redux darkModeState
-  const darkModeState = useSelector(state => state.darkModeState);
+  const darkModeState = useSelector(state => state.darkModeState.darkMode);
 
   return (
       <div className={`${darkModeState === true && "dark"} `}>

@@ -1,18 +1,18 @@
-import phonelogo from "../images/Category/phone.svg";
-import appleLogo from "../images/Category/apple.png";
-import xiaomiLogo from "../images/Category/xiaomi.png";
-import samsungLogo from "../images/Category/samsung.png";
-import huaweiLogo from "../images/Category/huawei.png";
-import laptopLogo from "../images/Category/laptop.svg";
-import asusLogo from "../images/Category/asus.png";
-import lenovoLogo from "../images/Category/lenovo.png";
-import msiLogo from "../images/Category/msi.png";
-import smartWatchLogo from "../images/Category/smartwatch.svg";
-import BarLogo from "./BarLogo";
+import phonelogo from "../../images/Category/phone.svg";
+import appleLogo from "../../images/Category/apple.png";
+import xiaomiLogo from "../../images/Category/xiaomi.png";
+import samsungLogo from "../../images/Category/samsung.png";
+import huaweiLogo from "../../images/Category/huawei.png";
+import laptopLogo from "../../images/Category/laptop.svg";
+import asusLogo from "../../images/Category/asus.png";
+import lenovoLogo from "../../images/Category/lenovo.png";
+import msiLogo from "../../images/Category/msi.png";
+import smartWatchLogo from "../../images/Category/smartwatch.svg";
+import BarLogo from "../bars/BarLogo";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { changeBrandsAction, changeTypeAction, selectBrandsAction, selectTypeAction } from "../redux/products/productsAction";
-import useWindowDimensions from "./useWindowDimensions";
+import { changeBrandsAction, changeTypeAction, selectBrandsAction, selectTypeAction } from "../../redux/products/productsAction";
+import useWindowDimensions from "../useWindowDimensions";
 
 
 

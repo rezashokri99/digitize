@@ -1,6 +1,6 @@
-import SingleProductContainer from "../components/SingleProductContainer";
-import NavbarSection from "../components/NavbarSection";
-import SidebarSection from "../components/SidebarSection";
+import SingleProductContainer from "../components/singleProduct/SingleProductContainer";
+import NavbarSection from "../components/navbar/NavbarSection";
+import SidebarSection from "../components/sidebarContainer/SidebarSection";
 import { useContext } from "react";
 import { productsProvider } from "../contexts/ProductsContext";
 import { useParams } from "react-router-dom";

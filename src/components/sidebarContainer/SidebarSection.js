@@ -1,6 +1,6 @@
-import "../../node_modules/react-input-range/lib/css/index.css";
-import BrandsFilter from "./sidebarContainer/BrandsFilter";
-import TypeFilter from "./sidebarContainer/TypeFilter";
+import "../../../node_modules/react-input-range/lib/css/index.css";
+import BrandsFilter from "./BrandsFilter";
+import TypeFilter from "./TypeFilter";
 
 const SidebarSection = ()=> {
 

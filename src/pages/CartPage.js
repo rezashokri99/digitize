@@ -1,6 +1,6 @@
-import NavbarSection from "../components/NavbarSection";
-import Cart from "../components/Cart";
-import FooterMenu from "../components/FooterMenu";
+import NavbarSection from "../components/navbar/NavbarSection";
+import Cart from "../components/cart/Cart";
+import FooterMenu from "../components/FooterMenuMobile/FooterMenu";
 
 const CartSection = () => {
     return (

@@ -1,11 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import logo from "../images/logo_two.svg";
-import { changeTypeAction, selectTypeAction } from "../redux/products/productsAction";
-import NavbarMenu from "./navbar/NavbarMenu";
-import ToggleDarkMode from "./ToggleDarkMode"; 
+import logo from "../../images/logo_two.svg";
+import NavbarMenu from "./NavbarMenu";
+import ToggleDarkMode from "../ToggleDarkMode"; 
 
 const NavbarSection = () => {
   

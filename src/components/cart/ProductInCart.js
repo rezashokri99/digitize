@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decrease, increase, removeItem } from "../redux/cart/cartAction";
+import { decrease, increase, removeItem } from "../../redux/cart/cartAction";
 
 const ProductInCart = ({id}) => {
 

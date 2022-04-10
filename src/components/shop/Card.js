@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Colors from "./Colors";
+import Colors from "../Colors";
 
 const Card = ({id}) => {
     

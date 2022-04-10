@@ -1,5 +1,5 @@
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { changeSortAction, selectSortAction } from "../redux/products/productsAction";
+import { changeSortAction, selectSortAction } from "../../redux/products/productsAction";
 
 const SortSection = () => {
     

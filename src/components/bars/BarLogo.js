@@ -1,8 +1,8 @@
 import { useLayoutEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import logo from "../images/logo.svg";
-import ToggleDarkMode from "./ToggleDarkMode";
+import logo from "../../images/logo.svg";
+import ToggleDarkMode from "../ToggleDarkMode";
 
 
 const Bar = () => {

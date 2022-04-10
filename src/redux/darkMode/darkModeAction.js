@@ -1,5 +1,8 @@
-const change = () => {
-    return {type: "CHANGE"}
+const darkMode = () => {
+    return {type: "DARK_MODE"}
+}
+const lightMode = () => {
+    return {type: "LIGHT_MODE"}
 }
 
-export { change }
+export { lightMode, darkMode }

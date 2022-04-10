@@ -1,20 +1,20 @@
 import { useState } from "react";
-import BarBackBtn from "./BarBackBtn";
+import BarBackBtn from "../bars/BarBackBtn";
 import { useParams } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import AddToCartDesktopSize from "./singleProduct/AddToCartDesktopSize";
-import AddToCartMobileSize from "./singleProduct/AddToCartMobileSize";
-import BreadcrumbMobile from "./singleProduct/BreadcrumbMobile";
-import BreadcrumbDesktop from "./singleProduct/BreadcrumbDesktop";
-import ProductImageContainer from "./singleProduct/ProductImageContainer";
-import ProductTitleContainer from "./singleProduct/ProductTitleContainer";
-import ProductColorsContainer from "./singleProduct/ProductColorsContainer";
-import ProductAttributesDesktop from "./singleProduct/ProductAttributesDesktop";
-import SellerInfoDesktop from "./singleProduct/SellerInfoDesktop";
-import SellerInfoMobile from "./singleProduct/SellerInfoMobile";
-import ProductAttributesTablet from "./singleProduct/ProductAttributesTablet";
-import ProductReview from "./singleProduct/ProductReview";
-import ProductAllAtributes from "./singleProduct/ProductAllAtributes";
+import AddToCartDesktopSize from "./AddToCartDesktopSize";
+import AddToCartMobileSize from "./AddToCartMobileSize";
+import BreadcrumbMobile from "./BreadcrumbMobile";
+import BreadcrumbDesktop from "./BreadcrumbDesktop";
+import ProductImageContainer from "./ProductImageContainer";
+import ProductTitleContainer from "./ProductTitleContainer";
+import ProductColorsContainer from "./ProductColorsContainer";
+import ProductAttributesDesktop from "./ProductAttributesDesktop";
+import SellerInfoDesktop from "./SellerInfoDesktop";
+import SellerInfoMobile from "./SellerInfoMobile";
+import ProductAttributesTablet from "./ProductAttributesTablet";
+import ProductReview from "./ProductReview";
+import ProductAllAtributes from "./ProductAllAtributes";
 
 
 

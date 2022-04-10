@@ -4,10 +4,10 @@ import darkModeReducer from "./darkMode/darkModeReducer";
 import {filtersSortTypesReducer, productsReducer} from "./products/productsReducer";
 
 const rootReducer = combineReducers({
+    darkModeState: darkModeReducer,
     allFiltersState : filtersSortTypesReducer,
     productsState : productsReducer,
     cartState: cartReducer,
-    darkModeState: darkModeReducer
 })
 
 export default rootReducer;
