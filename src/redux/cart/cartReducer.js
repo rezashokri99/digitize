@@ -18,9 +18,12 @@ const cartReducer = produce((state, action) => {
         }
 
         case "DECREASE":{
-            state[action.payload.id].quantity -= 1;
+            if (state[action.payload.id].quantity === 1) {
+                delete state[action.payload.id];          
+            }else {
+                state[action.payload.id].quantity -= 1;
+            }
             localStorage.setItem("products", JSON.stringify(state));
-
             break;
         }
 

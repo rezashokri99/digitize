@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart, decrease, increase } from "../../redux/cart/cartAction";
+import Notify from "../toastify/Notify";
 
 const AddToCartMobileSize = () => {
 
@@ -36,6 +37,7 @@ const AddToCartMobileSize = () => {
         dispatch(addToCart(product))
         let hasProduct = Object.keys(cartState).find((itemID) => itemID === product.id) ? cartState[product.id] : {...product, quantity:1};
         setIsInCard(hasProduct);
+        Notify(`${product.englishName} به سبد خرید اضافه شد. `, "success");
     }
 
     const increaseHanlder = () => {
@@ -54,7 +56,7 @@ const AddToCartMobileSize = () => {
     
     return (
         // {btn add to cart }
-        <div className="md:hidden bg-white dark:bg-slate-800 w-full fixed bottom-0 left-0 rounded-tr-md rounded-tl-md z-20">
+        <div className="md:hidden bg-white dark:bg-slate-800 w-full fixed bottom-0 left-0 rounded-tr-md rounded-tl-md z-20 shadow-[0_-4px_8px_0px_rgba(0,0,0,0.1)]">
             <div className="w-11/12 xs:w-96 flex items-center justify-center px-2px py-2 mx-auto">
                 <div className="flex-auto flex gap-x-3">
                 {

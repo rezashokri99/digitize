@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart, decrease, increase } from "../../redux/cart/cartAction";
+import Notify from "../toastify/Notify";
 
 const AddToCartDesktopSize = () => {
     
@@ -10,6 +11,8 @@ const AddToCartDesktopSize = () => {
 
     // redux state
     const products = useSelector(state => state.productsState, shallowEqual);
+
+
 
     let ID = "";
     for (const product in products) {
@@ -37,6 +40,7 @@ const AddToCartDesktopSize = () => {
         dispatch(addToCart(product))
         let hasProduct = Object.keys(cartState).find((itemID) => itemID === product.id) ? cartState[product.id] : {...product, quantity:1};
         setIsInCard(hasProduct);
+        Notify(`${product.englishName} به سبد خرید اضافه شد. `, "success");
     }
 
     const increaseHanlder = () => {

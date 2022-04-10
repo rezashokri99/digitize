@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { decrease, increase, removeItem } from "../../redux/cart/cartAction";
+import Notify from "../toastify/Notify";
 
 const ProductInCart = ({id}) => {
 
@@ -14,6 +15,7 @@ const ProductInCart = ({id}) => {
         dispatch(removeItem(product))
         // let hasProduct = cartState.find((item) => item.id === product.id) ? cartState.find((item) => item.id === product.id) : {...product, quantity:1};
         // setIsInCard(hasProduct);
+        Notify(`${product.englishName} از سبد خرید حذف شد.`, "error");
     }
 
     const increaseHanlder = () => {
@@ -54,7 +56,7 @@ const ProductInCart = ({id}) => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                         </svg>
                     </span>
-                    <span className="h-9 w-6 flex justify-center items-center border border-orange-500 dark:border-orange-600 dark:text-stone-100 rounded">{product.quantity}</span>
+                    <span className="select-none h-9 w-6 flex justify-center items-center border border-orange-500 dark:border-orange-600 dark:text-stone-100 rounded">{product.quantity}</span>
                     <span onClick={decreaseHanlder} className="cursor-pointer h-7 w-7 flex items-center justify-center rounded-full bg-orange-200">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 stroke-orange-500 dark:stroke-orange-600" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />

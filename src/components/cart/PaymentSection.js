@@ -66,15 +66,15 @@ const PaymentSection = ({clearHandler, openDiscount, setOpenDiscount}) => {
                     </div>
                 </div>
 
-                <div className="w-full  fixed md:static md:mt-5 bottom-[74px] left-0 right-0 rounded-tr-md rounded-tl-md z-20">
+                <div className="w-full fixed md:static md:mt-5 bottom-[74px] left-0 right-0 rounded-tr-md rounded-tl-md z-20">
                     <div className="w-11/12 md:w-full xs:w-96 flex gap-y-2 flex-col px-2px py-2 mx-auto">
                         <div className="flex-auto">
-                            <button className="bg-orange-500 w-full flex justify-center py-4 px-7 items-center text-stone-50 font-medium text-xl rounded-md">
+                            <button className="bg-orange-500 shadow-[0_0px_15px_1px_rgba(0,0,0,0.3)] w-full flex justify-center py-4 px-7 items-center text-stone-50 font-medium text-xl rounded-md">
 ادامه فرآیند خرید                                   
                             </button>
                         </div>
                         <div className="flex-auto hidden md:block">
-                            <button onClick={clearHandler} className="bg-transparent border-2 border-orange-500 w-full flex justify-center py-4 px-7 items-center text-orange-500 font-medium text-xl rounded-md">
+                            <button onClick={clearHandler} className=" shadow-[0_0px_15px_1px_rgba(0,0,0,0.3)] bg-transparent border-2 border-orange-500 w-full flex justify-center py-4 px-7 items-center text-orange-500 font-medium text-xl rounded-md">
 انصراف از خرید                                      
                             </button>
                         </div>

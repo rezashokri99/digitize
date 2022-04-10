@@ -82,12 +82,15 @@ const filtersSortTypesReducer = produce((state, action) => {
     switch (action.type) {
         case "CHANGE_BRANDS":{
             if (action.payload === "remove") {
-                state = filtersSortTypes;
+                state.brandslist = filtersSortTypes.brandslist;
                 brandsListGlobal = filtersSortTypes.brandslist;
+
+            }
+            else {
+                state.brandslist[action.payload] = !state.brandslist[action.payload];
+                brandsListGlobal = {...state.brandslist};
             }
 
-            state.brandslist[action.payload] = !state.brandslist[action.payload];
-            brandsListGlobal = {...state.brandslist};
 
             break;
         }
@@ -176,7 +179,7 @@ const products = {
         type: "mobile",
         brand: "huawei",
         images: [huawei_p30_pro_2, huawei_p30_pro_1, huawei_p30_pro_3],
-        englishName: "huawei p30 pro 128GB",
+        englishName: "p30 pro 128GB",
         persianName: "گوشی هواوی پی 30 پرو",
         price: "26,000,000",
         colors: ["indigo", "orange", "yellow", 'white'],
@@ -242,7 +245,7 @@ const products = {
         type: "mobile",
         brand: "huawei",
         images: [huawei_p40_pro_2, huawei_p40_pro_1, huawei_p40_pro_3],
-        englishName: "huawei p40 pro 256GB",
+        englishName: "p40 pro 256GB",
         persianName: "گوشی هواوی پی 40 پرو",
         price: "25,700,000",
         colors: ["indigo", "orange", "yellow", 'white'],
@@ -363,7 +366,7 @@ const products = {
         type: "mobile",
         brand: "huawei",
         images: [huawei_p30_pro_1, huawei_p30_pro_2, huawei_p30_pro_3],
-        englishName: "huawei p30 pro 128GB",
+        englishName: "p30 pro 128GB",
         persianName: "گوشی هواوی پی 30 پرو",
         price: "26,000,000",
         colors: ["indigo", "orange", "yellow", 'white'],
@@ -429,7 +432,7 @@ const products = {
         type: "mobile",
         brand: "huawei",
         images: [huawei_p40_pro_1, huawei_p40_pro_2, huawei_p40_pro_3],
-        englishName: "huawei p40 pro 256GB",
+        englishName: "p40 pro 256GB",
         persianName: "گوشی هواوی پی 40 پرو",
         price: "21,700,000",
         colors: ["indigo", "orange", "yellow", 'white'],

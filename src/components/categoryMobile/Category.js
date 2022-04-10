@@ -28,25 +28,27 @@ const Category = () => {
         // reset brands reducer
         dispatch(changeBrandsAction("remove"));
         dispatch(selectBrandsAction("remove"));
-
-        navigate("/shop")
+        
         dispatch(changeTypeAction(id));
         dispatch(selectTypeAction(id));
+        
+
+        navigate("/shop")
     }
 
     // brands selected handler 
     const brandsSelectedHandler = (e,id) => {
-        
+
         // reset brands reducer
         dispatch(changeBrandsAction("remove"));
         dispatch(selectBrandsAction("remove"));
 
-        navigate("/shop");
         dispatch(changeTypeAction(id));
         dispatch(selectTypeAction(id));
         
         dispatch(changeBrandsAction(e.target.id));
         dispatch(selectBrandsAction(e.target.id));
+        navigate("/shop");
     }
 
 

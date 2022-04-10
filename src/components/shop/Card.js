@@ -40,11 +40,11 @@ const Card = ({id}) => {
             <div className="flex items-center justify-between mx-[10px] mb-3">
                 <p className="text-gray-300 dark:text-gray-400 text-xs md:text-base">{product.brand}</p>
                 <div className="flex">
-                    {
+                    {/* {
                         product.colors.map((color) => (
                             <Colors key={color} color={color} product={product} colorSelected={colorSelected} changeColorHandler={changeColorHandler} />
                         ))
-                    }
+                    } */}
                 </div>
             </div>
             {/* product name and price */}

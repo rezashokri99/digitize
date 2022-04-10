@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { cartClear } from "../../redux/cart/cartAction";
 import BarBackBtn from "../bars/BarBackBtn";
+import Notify from "../toastify/Notify";
 import PaymentSection from "./PaymentSection";
 import ProductInCart from "./ProductInCart";
 
@@ -28,6 +29,7 @@ const Cart = () => {
     }
 
     const clearHandler = () => {
+        Notify(`سبد خرید خالی شد.`, "error");
         dispatch(cartClear())
     }
 
@@ -36,7 +38,6 @@ const Cart = () => {
     }, [cartStateIDS])
 
 
-console.log("object");
   return (
     <div className="mx-auto col-span-12 w-full xs:w-[450px] sm:w-[570px] md:w-full dark:bg-slate-800">
         <div className={`${openDiscount ? "pb-60" : "pb-52"} px-3 dark:bg-slate-800 grid gap-y-9 grid-cols-12 md:gap-x-2`}>

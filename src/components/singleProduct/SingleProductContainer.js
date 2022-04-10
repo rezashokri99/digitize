@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import BarBackBtn from "../bars/BarBackBtn";
 import { useParams } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
@@ -15,11 +15,17 @@ import SellerInfoMobile from "./SellerInfoMobile";
 import ProductAttributesTablet from "./ProductAttributesTablet";
 import ProductReview from "./ProductReview";
 import ProductAllAtributes from "./ProductAllAtributes";
+import { ToastContainer } from "react-toastify";
 
 
 
 const SingleProductContainer = () => {
   
+
+  useLayoutEffect(() => {
+    window.scrollTo("0px", "0px");
+  }, [])
+
   return (
     <>
       {/* breadcrumb desktop */}
@@ -126,7 +132,10 @@ const SingleProductContainer = () => {
       
       <AddToCartMobileSize />
 
+      <ToastContainer />
+
     </>
+    
   );
 };
 
