@@ -1,17 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartClear } from "../../redux/cart/cartAction";
 
-const PaymentSection = ({openDiscount, setOpenDiscount}) => {
+const PaymentSection = ({clearHandler, openDiscount, setOpenDiscount}) => {
 
     const cartStateIDS = useSelector(state => Object.keys(state.cartState));
     const cartState = useSelector(state => state.cartState);
+
+    
 
     // keys all price
     const allPrice = cartStateIDS.reduce((sum, productID) => {
         return sum += (+(cartState[productID].price).split(",").join("") * cartState[productID].quantity)
     },0)
+
     
+    
+    
+
 
     return (
         <>
@@ -67,7 +74,7 @@ const PaymentSection = ({openDiscount, setOpenDiscount}) => {
                             </button>
                         </div>
                         <div className="flex-auto hidden md:block">
-                            <button className="bg-transparent border-2 border-orange-500 w-full flex justify-center py-4 px-7 items-center text-orange-500 font-medium text-xl rounded-md">
+                            <button onClick={clearHandler} className="bg-transparent border-2 border-orange-500 w-full flex justify-center py-4 px-7 items-center text-orange-500 font-medium text-xl rounded-md">
 انصراف از خرید                                      
                             </button>
                         </div>

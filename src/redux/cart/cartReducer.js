@@ -31,6 +31,12 @@ const cartReducer = produce((state, action) => {
             break;
         }
         
+        case "CART_CLEAR": {
+            for (const product in state) {
+                delete state[product];
+            }
+            localStorage.setItem("products", JSON.stringify({}));
+        }
     }
 },initialState)
 

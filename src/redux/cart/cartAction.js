@@ -14,5 +14,9 @@ const removeItem = (product) => {
     return {type: "REMOVE_ITEM", payload: product}
 }
 
+const cartClear = () => {
+    return {type: "CART_CLEAR"}
+}
 
-export {addToCart, increase, decrease, removeItem};
+
+export {addToCart, increase, decrease, removeItem, cartClear};
