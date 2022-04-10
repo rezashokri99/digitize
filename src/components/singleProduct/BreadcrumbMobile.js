@@ -3,13 +3,22 @@ import { useParams } from "react-router-dom";
 
 const BreadcrumbMobile = () => {
 
+    
     // params id of url
     const paramsId = useParams().id;
 
     // redux state
-    const productType = useSelector(state => state.productsState[paramsId].type, shallowEqual);
-    const productBrand = useSelector(state => state.productsState[paramsId].brand, shallowEqual);
-    const productPersianName = useSelector(state => state.productsState[paramsId].persianName, shallowEqual);
+    const products = useSelector(state => state.productsState, shallowEqual);
+
+    let ID = "";
+    for (const product in products) {
+      if (products[product].id === (+paramsId)) {
+        ID = +product;
+      }
+    }
+    const productType = useSelector(state => products ? state.productsState[ID].type : "", shallowEqual);
+    const productBrand = useSelector(state => products ? state.productsState[ID].brand : "", shallowEqual);
+    const productPersianName = useSelector(state => products ? state.productsState[ID].persianName : "", shallowEqual);
 
     return (
         <>

@@ -108,8 +108,6 @@ const BrandsFilter = () => {
                             <input type="checkbox" onChange={() => ""} checked={brandslist.huawei === true ? true : false} id="huawei" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                             <span className="mr-1.5">هواوی</span>
                         </label>
-                    </div> :
-                    activeTypeBtn === 3 ? <div className="px-3">
                         <label onClick={(e) => brandsSelectedHandler(e)} id="asus" className="flex items-center cursor-pointer mb-2">
                             <input type="checkbox" onChange={() => ""} checked={brandslist.asus === true ? true : false} id="asus" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                             <span className="mr-1.5">ایسوس</span>
@@ -118,9 +116,35 @@ const BrandsFilter = () => {
                             <input type="checkbox" onChange={() => ""} checked={brandslist.lenovo === true ? true : false} id="lenovo" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                             <span className="mr-1.5">لنوو</span>
                         </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="msi" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.msi === true ? true : false} id="msi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">ام اس آی</span>
+                        </label>
+                    </div> :
+                    activeTypeBtn === 3 ? <div className="px-3">
                         <label onClick={(e) => brandsSelectedHandler(e)} id="apple" className="flex items-center cursor-pointer mb-2">
                             <input type="checkbox" onChange={() => ""} checked={brandslist.apple === true ? true : false} id="apple" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                             <span className="mr-1.5">اپل</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="samsung" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.samsung === true ? true : false} id="samsung" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">سامسونگ</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="xiaomi" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.xiaomi === true ? true : false} id="xiaomi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">شیائومی</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="huawei" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.huawei === true ? true : false} id="huawei" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">هواوی</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="asus" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.asus === true ? true : false} id="asus" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">ایسوس</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="lenovo" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.lenovo === true ? true : false} id="lenovo" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">لنوو</span>
                         </label>
                         <label onClick={(e) => brandsSelectedHandler(e)} id="msi" className="flex items-center cursor-pointer mb-2">
                             <input type="checkbox" onChange={() => ""} checked={brandslist.msi === true ? true : false} id="msi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
@@ -135,6 +159,26 @@ const BrandsFilter = () => {
                         <label onClick={(e) => brandsSelectedHandler(e)} id="samsung" className="flex items-center cursor-pointer mb-2">
                             <input type="checkbox" onChange={() => ""} checked={brandslist.samsung === true ? true : false} id="samsung" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
                             <span className="mr-1.5">سامسونگ</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="xiaomi" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.xiaomi === true ? true : false} id="xiaomi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">شیائومی</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="huawei" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.huawei === true ? true : false} id="huawei" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">هواوی</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="asus" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.asus === true ? true : false} id="asus" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">ایسوس</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="lenovo" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.lenovo === true ? true : false} id="lenovo" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">لنوو</span>
+                        </label>
+                        <label onClick={(e) => brandsSelectedHandler(e)} id="msi" className="flex items-center cursor-pointer mb-2">
+                            <input type="checkbox" onChange={() => ""} checked={brandslist.msi === true ? true : false} id="msi" className="text-orange-400 focus:ring-orange-400 cursor-pointer form-checkbox rounded w-3.5 h-3.5" />
+                            <span className="mr-1.5">ام اس آی</span>
                         </label>
                     </div>
                 }

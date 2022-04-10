@@ -9,7 +9,15 @@ const AddToCartMobileSize = () => {
     const paramsId = useParams().id;
     
     // redux state
-    const product = useSelector(state => state.productsState[paramsId], shallowEqual);
+    const products = useSelector(state => state.productsState, shallowEqual);
+
+    let ID = "";
+    for (const product in products) {
+      if (products[product].id === (+paramsId)) {
+        ID = +product;
+      }
+    }
+    const product = useSelector(state => state.productsState[ID], shallowEqual);
 
     const productQuantity = useSelector(state => state.cartState[paramsId] && state.cartState[paramsId].quantity);
 
