@@ -6,6 +6,7 @@ import CartPage from "./pages/CartPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProductsContext from "./contexts/ProductsContext";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<ShopPage />} />
           </Routes>
         </div>
+      <ToastContainer />
       </div>  
   );
 }

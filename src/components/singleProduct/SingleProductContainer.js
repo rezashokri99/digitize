@@ -132,7 +132,6 @@ const SingleProductContainer = () => {
       
       <AddToCartMobileSize />
 
-      <ToastContainer />
 
     </>
     
