@@ -128,8 +128,8 @@ const filtersSortTypesReducer = (state= filtersSortTypes, action) => {
 
 
 const products = {
-    1: {
-        id: 1,
+    0: {
+        id: 0,
         type: "mobile",
         brand: "apple",
         images: [iphone13_1, iphone13_2, iphone13_3],
@@ -139,8 +139,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "one"
     },
-    2: {
-        id: 2,
+    1: {
+        id: 1,
         type: "mobile",
         brand: "huawei",
         images: [huawei_p30_pro_2, huawei_p30_pro_1, huawei_p30_pro_3],
@@ -150,8 +150,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seven"
     },
-    3: {
-        id: 3,
+    2: {
+        id: 2,
         type: "laptop",
         brand: "asus",
         images: [asus_rog_2, asus_rog_1, asus_rog_3],
@@ -161,8 +161,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "twelve"
     },
-    4: {
-        id: 4,
+    3: {
+        id: 3,
         type: "mobile",
         brand: "xiaomi",
         images: [xiaomi_mi11_2, xiaomi_mi11_1, xiaomi_mi11_3],
@@ -172,8 +172,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "four"
     },
-    5: {
-        id: 5,
+    4: {
+        id: 4,
         type: "mobile",
         brand: "samsung",
         images: [samsung_note_20_ultra_2, samsung_note_20_ultra_1, samsung_note_20_ultra_3],
@@ -183,8 +183,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "nine"
     },
-    6: {
-        id: 6,
+    5: {
+        id: 5,
         type: "laptop",
         brand: "lenovo",
         images: [lenovo_legion_2, lenovo_legion_1, lenovo_legion_3],
@@ -194,8 +194,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-    7: {
-        id: 7,
+    6: {
+        id: 6,
         type: "mobile",
         brand: "apple",
         images: [iphone13_pro_2, iphone13_pro_1, iphone13_pro_3],
@@ -205,8 +205,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "two"
     },
-    8: {
-        id: 8,
+    7: {
+        id: 7,
         type: "mobile",
         brand: "huawei",
         images: [huawei_p40_pro_2, huawei_p40_pro_1, huawei_p40_pro_3],
@@ -216,8 +216,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eight"
     },
-    9: {
-        id: 9,
+    8: {
+        id: 8,
         type: "laptop",
         brand: "asus",
         images: [asus_zenBook_2, asus_zenBook_1, asus_zenBook_3],
@@ -227,8 +227,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "thirteen"
     },
-    10: {
-        id: 10,
+    9: {
+        id: 9,
         type: "mobile",
         brand: "samsung",
         images: [samsung_s21_ultra_2, samsung_s21_ultra_1, samsung_s21_ultra_3],
@@ -238,8 +238,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "ten"
     },
-    11: {
-        id: 11,
+    10: {
+        id: 10,
         type: "mobile",
         brand: "samsung",
         images: [samsung_s22_ultra_2, samsung_s22_ultra_1, samsung_s22_ultra_3],
@@ -249,8 +249,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eleven"
     },
-    12: {
-        id: 12,
+    11: {
+        id: 11,
         type: "mobile",
         brand: "apple",
         images: [iphone13_pro_max_2, iphone13_pro_max_1],
@@ -260,8 +260,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "there"
     },
-    13: {
-        id: 13,
+    12: {
+        id: 12,
         type: "mobile",
         brand: "xiaomi",
         images: [xiaomi_mi11_ultra_2, xiaomi_mi11_ultra_1, xiaomi_mi11_ultra_3],
@@ -271,8 +271,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "five"
     },
-    14: {
-        id: 14,
+    13: {
+        id: 13,
         type: "laptop",
         brand: "asus",
         images: [asus_tuf_2, asus_tuf_1, asus_tuf_3],
@@ -282,8 +282,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-    15: {
-        id: 15,
+    14: {
+        id: 14,
         type: "mobile",
         brand: "xiaomi",
         images: [xiaomi_poco_f3_2, xiaomi_poco_f3_1, xiaomi_poco_f3_3],
@@ -293,8 +293,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "six"
     },
-    16: {
-        id: 16,
+    15: {
+        id: 15,
         type: "laptop",
         brand: "apple",
         images: [macBook_pro_2, macBook_pro_1, macBook_pro_3],
@@ -304,8 +304,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "sixteen"
     },
-    17: {
-        id: 17,
+    16: {
+        id: 16,
         type: "smartWatch",
         brand: "apple",
         images: [apple_watch_7_2, apple_watch_7_1],
@@ -315,8 +315,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seventeen"
     },
-    18: {
-        id: 18,
+    17: {
+        id: 17,
         type: "mobile",
         brand: "apple",
         images: [iphone13_1, iphone13_2, iphone13_3],
@@ -326,8 +326,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "one"
     },
-    19: {
-        id: 19,
+    18: {
+        id: 18,
         type: "mobile",
         brand: "huawei",
         images: [huawei_p30_pro_1, huawei_p30_pro_2, huawei_p30_pro_3],
@@ -337,8 +337,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "seven"
     },
-    20: {
-        id: 20,
+    19: {
+        id: 19,
         type: "laptop",
         brand: "asus",
         images: [asus_rog_1, asus_rog_2, asus_rog_3],
@@ -348,8 +348,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "twelve"
     },
-    21: {
-        id: 21,
+    20: {
+        id: 20,
         type: "mobile",
         brand: "xiaomi",
         images: [xiaomi_mi11_1, xiaomi_mi11_2, xiaomi_mi11_3],
@@ -359,8 +359,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "four"
     },
-    22: {
-        id: 22,
+    21: {
+        id: 21,
         type: "mobile",
         brand: "samsung",
         images: [samsung_note_20_ultra_1, samsung_note_20_ultra_2, samsung_note_20_ultra_3],
@@ -370,8 +370,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "nine"
     },
-    23: {
-        id: 23,
+    22: {
+        id: 22,
         type: "laptop",
         brand: "lenovo",
         images: [lenovo_legion_1, lenovo_legion_2, lenovo_legion_3],
@@ -381,8 +381,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-    24: {
-        id: 24,
+    23: {
+        id: 23,
         type: "mobile",
         brand: "apple",
         images: [iphone13_pro_1, iphone13_pro_2, iphone13_pro_3],
@@ -392,8 +392,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "two"
     },
-    25: {
-        id: 25,
+    24: {
+        id: 24,
         type: "mobile",
         brand: "huawei",
         images: [huawei_p40_pro_1, huawei_p40_pro_2, huawei_p40_pro_3],
@@ -403,8 +403,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eight"
     },
-    26: {
-        id: 26,
+    25: {
+        id: 25,
         type: "laptop",
         brand: "asus",
         images: [asus_zenBook_1, asus_zenBook_2, asus_zenBook_3],
@@ -414,8 +414,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "thirteen"
     },
-    27: {
-        id: 27,
+    26: {
+        id: 26,
         type: "mobile",
         brand: "samsung",
         images: [samsung_s21_ultra_1, samsung_s21_ultra_2, samsung_s21_ultra_3],
@@ -425,8 +425,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "ten"
     },
-    28: {
-        id: 28,
+    27: {
+        id: 27,
         type: "mobile",
         brand: "samsung",
         images: [samsung_s22_ultra_1, samsung_s22_ultra_2, samsung_s22_ultra_3],
@@ -436,8 +436,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "eleven"
     },
-    29: {
-        id: 29,
+    28: {
+        id: 28,
         type: "mobile",
         brand: "apple",
         images: [iphone13_pro_max_1, iphone13_pro_max_2],
@@ -447,8 +447,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "there"
     },
-    30: {
-        id: 30,
+    29: {
+        id: 29,
         type: "mobile",
         brand: "xiaomi",
         images: [xiaomi_mi11_ultra_1, xiaomi_mi11_ultra_2, xiaomi_mi11_ultra_3],
@@ -458,8 +458,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "five"
     },
-    31: {
-        id: 31,
+    30: {
+        id: 30,
         type: "laptop",
         brand: "asus",
         images: [asus_tuf_1, asus_tuf_2, asus_tuf_3],
@@ -469,8 +469,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "fourteen"
     },
-    32: {
-        id: 32,
+    31: {
+        id: 31,
         type: "mobile",
         brand: "xiaomi",
         images: [xiaomi_poco_f3_1, xiaomi_poco_f3_2, xiaomi_poco_f3_3],
@@ -480,8 +480,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "six"
     },
-    33: {
-        id: 33,
+    32: {
+        id: 32,
         type: "laptop",
         brand: "apple",
         images: [macBook_pro_1, macBook_pro_2, macBook_pro_3],
@@ -491,8 +491,8 @@ const products = {
         colors: ["indigo", "orange", "yellow", 'white'],
         colorType: "sixteen"
     },
-    34: {
-        id: 34,
+    33: {
+        id: 33,
         type: "smartWatch",
         brand: "apple",
         images: [apple_watch_7_1, apple_watch_7_2],
@@ -577,12 +577,29 @@ const productsReducer = (state= products, action) => {
                     return (productsCopyied[a].price).split(",").join("") - (productsCopyied[b].price).split(",").join("");
                 });
                 
-                return state =  keyProducts.map((key) => productsCopyied[key]);
+                let productsForNotDeleted = productsCopyied;
+                productsCopyied = {};
+                
+                keyProducts.map((key, index) => {
+                    return productsCopyied[index] = {...productsForNotDeleted[+keyProducts[index]]}
+                });
+
+                return state =  productsCopyied
+                
             } else if (activeSortBtnGloal === 3) {
                 let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
                     return (productsCopyied[b].price).split(",").join("") - (productsCopyied[a].price).split(",").join("");
                 });
-                return state =  keyProducts.map((key) => productsCopyied[key]);
+                
+                let productsForNotDeleted = productsCopyied;
+                productsCopyied = {};
+                
+                keyProducts.map((key, index) => {
+                    return productsCopyied[index] = {...productsForNotDeleted[+keyProducts[index]]}
+                });
+
+                return state =  productsCopyied
+
             }else if (activeSortBtnGloal === 4) {
                 return state =  productsCopyied
             }
@@ -653,13 +670,29 @@ const productsReducer = (state= products, action) => {
                 let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
                     return (productsCopyied[a].price).split(",").join("") - (productsCopyied[b].price).split(",").join("");
                 });
-                return state =  keyProducts.map((key) => productsCopyied[key]);
+                
+                let productsForNotDeleted = productsCopyied;
+                productsCopyied = {};
+                
+                keyProducts.map((key, index) => {
+                    return productsCopyied[index] = {...productsForNotDeleted[+keyProducts[index]]}
+                });
+                
+                return state =  productsCopyied
 
             } else if (activeSortBtnGloal === 3) {
                 let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
                     return (productsCopyied[b].price).split(",").join("") - (productsCopyied[a].price).split(",").join("");
                 });
-                return state =  keyProducts.map((key) => productsCopyied[key]);
+                
+                let productsForNotDeleted = productsCopyied;
+                productsCopyied = {};
+                
+                keyProducts.map((key, index) => {
+                    return productsCopyied[index] = {...productsForNotDeleted[+keyProducts[index]]}
+                });
+
+                return state =  productsCopyied
 
             }else if (activeSortBtnGloal === 4) {
                 return state =  productsCopyied
@@ -730,12 +763,27 @@ const productsReducer = (state= products, action) => {
                     return (productsCopyied[a].price).split(",").join("") - (productsCopyied[b].price).split(",").join("");
                 });
 
-                return state =  keyProducts.map((key) => productsCopyied[key]);
+                let productsForNotDeleted = productsCopyied;
+                productsCopyied = {};
+                
+                keyProducts.map((key, index) => {
+                    return productsCopyied[index] = {...productsForNotDeleted[+keyProducts[index]]}
+                });
+                
+                return state =  productsCopyied;
+
             } else if (activeSortBtnGloal === 3) {
                 let keyProducts = Object.keys(productsCopyied).sort((a, b) => {
                     return (productsCopyied[b].price).split(",").join("") - (productsCopyied[a].price).split(",").join("");
                 });
-                return state =  keyProducts.map((key) => productsCopyied[key]);
+
+                let productsForNotDeleted = productsCopyied;
+                productsCopyied = {};
+                keyProducts.map((key, index) => {
+                    return productsCopyied[index] = {...productsForNotDeleted[+keyProducts[index]]}
+                });
+                return state =  productsCopyied
+
             }else if (activeSortBtnGloal === 4) {
                 return state =  productsCopyied
 

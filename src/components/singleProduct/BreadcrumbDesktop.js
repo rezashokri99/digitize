@@ -7,6 +7,8 @@ const BreadcrumbDesktop = () => {
     const paramsId = useParams().id;
 
     // redux state
+    const pro = useSelector(state => state.productsState[paramsId], shallowEqual);
+    console.log(pro);
     const productType = useSelector(state => state.productsState[paramsId].type, shallowEqual);
     const productBrand = useSelector(state => state.productsState[paramsId].brand, shallowEqual);
     const productPersianName = useSelector(state => state.productsState[paramsId].persianName, shallowEqual);

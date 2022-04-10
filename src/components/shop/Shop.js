@@ -16,7 +16,7 @@ const Shop = ({brandsListHandler, productsForRender}) => {
 
     // redux prodoctsIds
     const productsIDS = useSelector(state => Object.keys(state.productsState));
-    console.log(productsIDS);
+
     // const products = useSelector(state => state.productsState);
     // let productsIDS = Object.keys(products);
 
