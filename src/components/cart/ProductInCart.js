@@ -44,18 +44,18 @@ const ProductInCart = ({id}) => {
             </div>
             <div className="flex flex-col justify-between items-end">
                 <span onClick={removeHandler}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 dark:stroke-orange-600 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-5 w-5 sm:h-6 sm:w-6 stroke-orange-500 dark:stroke-orange-600 -mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </span>
                 <div className="flex items-center gap-x-[6px] sm:gap-x-2">
-                    <span onClick={increaseHanlder} className="h-7 w-7 flex items-center justify-center rounded-full bg-gray-300">
+                    <span onClick={increaseHanlder} className="cursor-pointer h-7 w-7 flex items-center justify-center rounded-full bg-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 stroke-slate-800" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                         </svg>
                     </span>
                     <span className="h-9 w-6 flex justify-center items-center border border-orange-500 dark:border-orange-600 dark:text-stone-100 rounded">{product.quantity}</span>
-                    <span onClick={decreaseHanlder} className="h-7 w-7 flex items-center justify-center rounded-full bg-orange-200">
+                    <span onClick={decreaseHanlder} className="cursor-pointer h-7 w-7 flex items-center justify-center rounded-full bg-orange-200">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 stroke-orange-500 dark:stroke-orange-600" fill="none" viewBox="0 0 24 24" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
                         </svg>

@@ -16,9 +16,9 @@ const TypeFilter = () => {
     // active type btn selected
     const activeTypeBtnHandler = (e, id) => {
         e.preventDefault();
-        navigate("/shop")
         dispatch(changeTypeAction(id));
         dispatch(selectTypeAction(id));
+        navigate("/shop");
     }
 
     return (
