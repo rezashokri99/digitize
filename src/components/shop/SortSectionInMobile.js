@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 const SortSectionInMobile = ({setOpenSortMobile, activeSortBtnHandler}) => {
 
-    // activeSortBtn 
-    const activeSortBtn = useSelector(state => state.allFiltersState.allFiltersState);
+    // redux active sort btn filters
+    const activeSortBtn = useSelector(state => state.allFiltersState.activeSortBtn, shallowEqual);
+    
+    
 
     return (
         <>

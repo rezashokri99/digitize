@@ -1,15 +1,15 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const SortFilter = ({setOpenSortMobile}) => {
 
     // activeSortBtn 
-    const activeSortBtn = useSelector(state => state.allFiltersState.allFiltersState);
+    const activeSortBtn = useSelector(state => state.allFiltersState.activeSortBtn);
 
     // filter name for show in mobile size
     const [filterSortName, setFilterSortName] = useState("محبوب ترین");
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (activeSortBtn === 1) {
             setFilterSortName("محبوب ترین");
         }else if (activeSortBtn === 2) {
@@ -23,7 +23,7 @@ const SortFilter = ({setOpenSortMobile}) => {
     },[activeSortBtn])
 
     return (
-        <div onClick={() => setOpenSortMobile(true)} className="w-1/2 bg-white dark:bg-slate-700 rounded-md h-11 flex items-center justify-center">
+        <div onClick={() => setOpenSortMobile(true)} className="cursor-pointer w-1/2 bg-white dark:bg-slate-700 rounded-md h-11 flex items-center justify-center">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-500 dark:text-orange-600 ml-1 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
